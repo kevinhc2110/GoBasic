@@ -12,6 +12,12 @@ func variables /*main*/()  {
 
 	fmt.Println(num, name)
 
+	// Declara e inicializa múltiples variables
+	
+	var a, b, c int = 1, 2, 3  
+  
+	fmt.Println(a, b, c)
+
 	num = 0
 	name = "Sofia"
 

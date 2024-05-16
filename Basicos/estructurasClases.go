@@ -13,4 +13,7 @@ func estruClase /*main*/()  {
 
 	myStruct := MyStruct {"Brais", 36}
 	fmt.Println(myStruct)
+
 }
+
+

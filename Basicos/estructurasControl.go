@@ -1,11 +1,10 @@
 package main
 
 import (
-	"container/list"
 	"fmt"
 )
 
-func /*estruControl*/ main() {
+func estruControl /*main*/() {
 
 	num1 := 1
 	name := "Hola"
@@ -25,44 +24,19 @@ func /*estruControl*/ main() {
 		fmt.Println("El valor no es 5")
 	}
 
-	// Array
-
-	var myArray [3]int
-
-	myArray[0] = 1
-	myArray[1] = 1
-	myArray[2] = 1
-
-	fmt.Println(myArray)
-	fmt.Println(myArray[2])
-
-	// Map
-
-	myMap := make(map[string]int)
-	myMap["Brais"] = 36
-	myMap["Kevin"] = 26
-
-	fmt.Println(myMap)
-	fmt.Println(myMap["Brais"])
-
-	myMap2 := map[string]int{"Brais":36, "Kevin":26}
-	fmt.Println(myMap2)
-
-	// Lista
-
-	myList:= list.New()
-	myList.PushBack(1)
-	myList.PushBack(2)
-	myList.PushBack(3)
-
-	fmt.Println(myList) //Representación de punteros
-	fmt.Println(myList.Back().Value) // Representa el ultimo valor de la lista
+	
 
 	// Bucles
+
+	var myArray [3]int
 
 	for i := 0; i < len(myArray); i++ {
 		fmt.Println(myArray[i])
 	}
+
+	myMap := make(map[string]int)
+	myMap["Brais"] = 36
+	myMap["Kevin"] = 26
 
 	for key, value := range myMap {
 		fmt.Println(key,value)
