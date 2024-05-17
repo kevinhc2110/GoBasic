@@ -2,7 +2,7 @@ package main
 
 import "fmt"
 
-func main() {
+func operadores /*main*/() {
     var a = 10
     var b = 5
 
