@@ -2,7 +2,7 @@ package main
 
 import "fmt"
 
-func metodos /*main*/()  {
+func metodos() /*main*/  {
 
 		// Usamos el método en nuestra función main
 

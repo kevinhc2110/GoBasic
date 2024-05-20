@@ -6,7 +6,8 @@ import (
 )
 
 //Declaración de variables
-func variables /*main*/()  {
+
+func variables() /*main*/  {
 	var num int = 3
 	var name string = "KevinDev"
 
@@ -26,37 +27,50 @@ func variables /*main*/()  {
 
 	fmt.Println(num2, name2)
 
-	//num2 = "" Seria un error porque el tipo que tomo anteriormente fue de int
+	// num2 = "" Seria un error porque el tipo que tomo anteriormente fue de int
 
 	num2 = num2 + 8
 	fmt.Println(num2)
 
 	fmt.Println(num2 - 1)
 	
-	//Concatenar tipos diferentes
+	// Concatenar tipos diferentes
 
 	fmt.Println(name2, num2)
 
-	//Mostrar el tipo por consola
+	// Mostrar el tipo por consola
 
 	fmt.Println(reflect.TypeOf(num))
 
-	//Sumar entero y float
+	// Sumar entero y float
 
 	var float1 float64 = 6.5
 	fmt.Println(float1 + float64(num2))
 
-	//Mas tipos de datos
+	// Mas tipos de datos
+
+	// Booleans
 
 	var bool1 bool = false
 	fmt.Println(bool1)
+
+	// Complejos
+
+	var complejo complex128 = 2 + 3i
+	fmt.Println(complejo)
+
+	// Caracteres
+
+	var caracter rune = 'a'
+	fmt.Println(caracter)
  
-	//Evitar usar el var para declarar e inicializar
+	// Evitar usar el var para declarar e inicializar
 
 	name3 := "Papi";
 	fmt.Println(name3)
 
-	//Constantes
+	// Constantes
+
 	const myConst = "Kevin Llora"
 }
 

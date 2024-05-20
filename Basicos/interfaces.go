@@ -19,7 +19,7 @@ func (p2 Persona2) Saludar() {
     fmt.Printf("Hola, mi nombre es %s.\n", p2.Nombre)
 }
 
-func interfaces /*main*/() {
+func interfaces() /*main*/ {
     // Creación de una instancia de Persona
     p2 := Persona2{
         Nombre: "Juan",

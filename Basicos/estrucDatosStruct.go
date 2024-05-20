@@ -2,7 +2,7 @@ package main
 
 import "fmt"
 
-func estruClase /*main*/()  {
+func estruClase() /*main*/ {
 	// No hay clases si no estructuras
 	// Estructuras
 

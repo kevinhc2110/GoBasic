@@ -5,7 +5,7 @@ import (
 	"strings"
 )
 
-func cadenaCaracteres /*main*/ () {
+func cadenaCaracteres() /*main*/ {
 
 	// Acceso a caracteres específicos
 

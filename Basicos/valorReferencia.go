@@ -4,7 +4,7 @@ import "fmt"
 
 // Asignación por valor:
 
-func asignacionValor() {
+func asignacionValor() /*main*/ {
     // Asignación por valor para tipos básicos
     x := 10
     y := x
@@ -56,6 +56,9 @@ func duplicarReferencia(numero *int) {
 
 func fPasoReferencia() {
 	x := 10
+
+	// al usar & estas haciendo referencia a que pasamos la dirección de memoria de x
+	
 	duplicarReferencia(&x)
 	fmt.Println("x después de duplicarReferencia:", x) // Imprime: x después de duplicarReferencia: 20
 }

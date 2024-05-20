@@ -2,7 +2,7 @@ package main
 
 import "fmt" //Paquete de formateo
 
-func holaMundo /*main */() {
+func holaMundo() /*main */ {
 	fmt.Println("Hola, Mundo!")
 }
 

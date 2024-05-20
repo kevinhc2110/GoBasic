@@ -2,7 +2,7 @@ package main
 
 import "fmt"
 
-func practica02 /*main*/() {
+func practica02() /*main*/ {
     fun02("Pedrito","Flores")
 }
 

@@ -2,7 +2,7 @@ package main
 
 import "fmt"
 
-func practica01 /*main*/() {
+func practica01() /*main*/ {
 
 	// https://go.dev/doc/
 

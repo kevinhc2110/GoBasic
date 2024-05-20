@@ -13,7 +13,7 @@ var contactos = map[string]string {"romeo":"3179812397", "sofia": "3207783344"}
 var nombre string
 var numero string
 
-func practica03 /*main*/() {
+func practica03() /*main*/ {
 
 	var option int
 

@@ -5,7 +5,7 @@ import (
 	"strings"
 )
 
-func tipoGrama /*main*/() {
+func practica04() /*main*/ {
 
 	var palabra1, palabra2 string
 

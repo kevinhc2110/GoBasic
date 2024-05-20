@@ -2,7 +2,7 @@ package main
 
 import "fmt"
 
-func funciones /*main*/()  {
+func funciones() /*main*/ {
 	myFunction()	
 }
 

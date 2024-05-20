@@ -4,7 +4,7 @@ import (
 	"fmt"
 )
 
-func estruControl /*main*/() {
+func estruControl() /*main*/ {
 
 	num1 := 1
 	name := "Hola"
