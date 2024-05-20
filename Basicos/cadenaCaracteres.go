@@ -117,4 +117,18 @@ func cadenaCaracteres /*main*/ () {
 	cadena15 := "Hola   Mundo  Gopher"
   palabras := strings.Fields(cadena15)
   fmt.Println("Palabras encontradas:", palabras) // Imprime: ["Hola" "Mundo" "Gopher"]
+
+	// Divide una cadena de caracteres en caracteres individuales
+
+	cadena16 := "Hola, 世界"
+    
+	// Convertir la cadena en un slice de runas
+
+	runas := []rune(cadena16)
+	
+	// Imprimir cada carácter individualmente
+	
+	for i, r := range runas {
+			fmt.Printf("Carácter %d: %c\n", i, r)
+	}
 }
