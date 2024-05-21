@@ -53,7 +53,7 @@ func excepcionProc(a, b int) error {
 	return nil
 }
 
-func main() {
+func practica10()/*main*/ {
 
 	// Llamamos a la función que lanza el error personalizado
 	
