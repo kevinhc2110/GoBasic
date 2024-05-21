@@ -72,6 +72,7 @@ func variables() /*main*/  {
 	// Constantes
 
 	const myConst = "Kevin Llora"
+	fmt.Println(myConst)
 }
 
 

@@ -80,10 +80,9 @@ func operadores() /*main*/ {
 		// Operadores especiales
 		//Operador de Dirección (&): Obtiene la dirección de memoria de una variable.
 		//Operador de Desreferencia (*): Accede al valor apuntado por un puntero.
+    // Declarar e inicializar el puntero p en la misma línea
 
-		var p *int
-
-    p = &a  // p obtiene la dirección de a
+    p := &a  // p obtiene la dirección de a
     fmt.Println("Dirección de a:", p)
     fmt.Println("Valor de a a través de p:", *p)  // Desreferencia de p
 

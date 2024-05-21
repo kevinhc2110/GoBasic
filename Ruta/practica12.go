@@ -95,7 +95,7 @@ func borrarArchivo(filename string) error {
 	return os.Remove(filename)
 }
 
-func main() {
+func practica12() /*main*/ {
 	datos := Datos{
 		Nombre:                 "Juan Perez",
 		Edad:                   30,

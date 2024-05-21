@@ -93,7 +93,7 @@ func añadirProducto(productos []Producto, producto Producto) []Producto {
 
 func buscarProducto(productos []Producto, nombre string) (Producto, int) {
 	for i, producto := range productos {
-		if strings.ToLower(producto.Nombre) == strings.ToLower(nombre) {
+		if strings.EqualFold(producto.Nombre, nombre) {
 			return producto, i
 		}
 	}
@@ -102,7 +102,7 @@ func buscarProducto(productos []Producto, nombre string) (Producto, int) {
 
 func actualizarProducto(productos []Producto, nombre string, nuevaCantidad int, nuevoPrecio float64) ([]Producto, bool) {
 	for i, producto := range productos {
-		if strings.ToLower(producto.Nombre) == strings.ToLower(nombre) {
+		if strings.EqualFold(producto.Nombre, nombre) {
 			productos[i].CantidadVendida = nuevaCantidad
 			productos[i].Precio = nuevoPrecio
 			return productos, true
@@ -113,7 +113,7 @@ func actualizarProducto(productos []Producto, nombre string, nuevaCantidad int, 
 
 func eliminarProducto(productos []Producto, nombre string) ([]Producto, bool) {
 	for i, producto := range productos {
-		if strings.ToLower(producto.Nombre) == strings.ToLower(nombre) {
+		if strings.EqualFold(producto.Nombre, nombre) {
 			return append(productos[:i], productos[i+1:]...), true
 		}
 	}
@@ -130,7 +130,7 @@ func calcularVentaTotal(productos []Producto) float64 {
 
 func calcularVentaPorProducto(productos []Producto, nombre string) (float64, bool) {
 	for _, producto := range productos {
-		if strings.ToLower(producto.Nombre) == strings.ToLower(nombre) {
+		if strings.EqualFold(producto.Nombre, nombre) {
 			return float64(producto.CantidadVendida) * producto.Precio, true
 		}
 	}

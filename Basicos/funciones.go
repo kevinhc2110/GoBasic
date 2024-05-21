@@ -4,6 +4,7 @@ import "fmt"
 
 func funciones() /*main*/ {
 	myFunction()	
+	myFunction2()
 }
 
 //funciones 

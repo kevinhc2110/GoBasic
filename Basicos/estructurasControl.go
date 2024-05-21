@@ -69,7 +69,7 @@ func estruControl() /*main*/ {
 
 	panic("Se produjo un error")
 
-
+	
 }
 
 // Recover: Se utiliza para manejar una situación de pánico y continuar la ejecución.	 
