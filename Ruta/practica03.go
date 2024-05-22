@@ -8,6 +8,19 @@ import (
 	"strings"
 )
 
+/*
+DIFICULTAD EXTRA:
+Crea una agenda de contactos por terminal.
+- Debes implementar funcionalidades de búsqueda, inserción, actualización
+y eliminación de contactos.
+- Cada contacto debe tener un nombre y un número de teléfono.
+- El programa solicita en primer lugar cuál es la operación que se quiere realizar,
+y a continuación los datos necesarios para llevarla a cabo.
+- El programa no puede dejar introducir números de teléfono no numéricos y con más
+de 11 dígitos (o el número de dígitos que quieras).
+- También se debe proponer una operación de finalización del programa.
+*/
+
 var contactos = map[string]string {"romeo":"3179812397", "sofia": "3207783344"}
 
 var numero string

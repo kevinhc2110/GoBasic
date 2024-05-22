@@ -41,4 +41,11 @@ func main()  {
 	canales()
 	cadenaCaracteres()
 	fechas()
+	asincroniaGoroutines()
+	formateo()
+	caracteresEscape()
+	expresionesRegulares()
+	interaciones()
+	enumGo()
+	genericosGo()
 }

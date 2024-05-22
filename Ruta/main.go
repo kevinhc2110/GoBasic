@@ -15,4 +15,8 @@ func main() {
 	practica14()
 	stackPractica()
 	queuePractica()
+	practica15()
+	practica16()
+	practica17()
+	practica18()
 }

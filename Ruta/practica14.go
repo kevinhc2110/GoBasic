@@ -5,7 +5,19 @@ import (
 	"time"
 )
 
-func practica14 /*main*/() {
+/*
+DIFICULTAD EXTRA:
+Utilizando la fecha de tu cumpleaños, formatéala y muestra su resultado de
+10 maneras diferentes. Por ejemplo:
+- Día, mes y año.
+- Hora, minuto y segundo.
+- Día de año.
+- Día de la semana.
+- Nombre del mes.
+(lo que se te ocurra...)
+*/
+
+func practica14() /*main*/ {
 	// Crear una variable que represente tu fecha de nacimiento
 	fechaNacimiento := time.Date(1997, time.October, 10, 0, 0, 0, 0, time.UTC)
 
