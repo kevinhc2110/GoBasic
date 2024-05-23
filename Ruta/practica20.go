@@ -42,7 +42,7 @@ type GameVersion struct {
 	Name string `json:"name"`
 }
 
-func main() {
+func practica20() /*main()*/ {
 
 	// Verificamos si al menos un argumento fue pasado en la línea de comandos
 
