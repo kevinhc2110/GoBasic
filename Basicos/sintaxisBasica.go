@@ -48,4 +48,8 @@ func main()  {
 	interaciones()
 	enumGo()
 	genericosGo()
+	PeticionHTTP()
+	PeticiónAPI()
+	callbacks()
+	clousure()
 }
