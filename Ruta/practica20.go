@@ -18,16 +18,15 @@ utilizando su nombre o número.
 - Controla posibles errores
 */
 
-const baseURL = "https://pokeapi.co/api/v2/pokemon/"
+const baseURL = "https://pokeapi.co/api/v2/pokemon/" // URL base de la PokéAPI
 
+// Definición de estructuras para mapear los datos JSON
 type Pokemon struct {
-	Name       string        `json:"name"`
-	ID         int           `json:"id"`
-	Weight     int           `json:"weight"`
-	Height     int           `json:"height"`
-	Types      []PokemonType `json:"types"`
-	EvolvesTo  string        `json:"evolves_to"`
-	AppearIn   []GameVersion `json:"appear_in"`
+	Name   string        `json:"name"`
+	ID     int           `json:"id"`
+	Weight int           `json:"weight"`
+	Height int           `json:"height"`
+	Types  []PokemonType `json:"types"`
 }
 
 type PokemonType struct {
@@ -38,42 +37,41 @@ type TypeDetail struct {
 	Name string `json:"name"`
 }
 
-type GameVersion struct {
-	Name string `json:"name"`
-}
+func main() {
+	
+	var pokemonName string
 
-func practica20() /*main()*/ {
-
-	// Verificamos si al menos un argumento fue pasado en la línea de comandos
+	// Verificar si se proporciona un nombre de Pokémon como argumento en la línea de comandos
 
 	if len(os.Args) < 2 {
-		fmt.Println("Por favor, ingresa el nombre o número del Pokémon.")
-		return
+		// Si no se proporciona, solicitar al usuario que ingrese el nombre o número del Pokémon
+		fmt.Println("Por favor, ingresa el nombre o número del Pokémon:")
+		fmt.Scanln(&pokemonName) // Leer la entrada del usuario desde la terminal
+	} else {
+		pokemonName = os.Args[1] // Usar el argumento proporcionado como el nombre del Pokémon
 	}
 
-	pokemonName := os.Args[1]
-
-	// Reemplazamos espacios en blanco con guiones bajos
+	// Formatear el nombre del Pokémon para que coincida con el formato de la URL de la PokéAPI
 
 	pokemonName = strings.Replace(pokemonName, " ", "-", -1)
 
-	// Realizamos la solicitud GET a la PokéAPI
+	// Realizar la solicitud GET a la PokéAPI para obtener información del Pokémon
 
 	resp, err := http.Get(baseURL + pokemonName)
 	if err != nil {
 		fmt.Printf("Error realizando la petición: %v\n", err)
 		return
 	}
-	defer resp.Body.Close()
+	defer resp.Body.Close() // Cerrar el cuerpo de la respuesta después de que la función main haya terminado
 
-	// Verificamos si la solicitud fue exitosa (código de estado 200)
+	// Verificar si la solicitud fue exitosa (código de estado 200)
 
 	if resp.StatusCode != http.StatusOK {
 		fmt.Printf("Error: estado de respuesta %d\n", resp.StatusCode)
 		return
 	}
 
-	// Decodificamos el JSON de la respuesta en la estructura Pokemon
+	// Decodificar el JSON de la respuesta en la estructura Pokemon
 
 	var pokemon Pokemon
 	err = json.NewDecoder(resp.Body).Decode(&pokemon)
@@ -82,7 +80,7 @@ func practica20() /*main()*/ {
 		return
 	}
 
-	// Mostramos la información del Pokémon
+	// Mostrar la información del Pokémon
 
 	fmt.Println("Nombre:", pokemon.Name)
 	fmt.Println("ID:", pokemon.ID)
@@ -90,12 +88,9 @@ func practica20() /*main()*/ {
 	fmt.Println("Altura:", pokemon.Height)
 	fmt.Println("Tipos:")
 
+	// Mostrar los tipos del Pokémon
+
 	for _, t := range pokemon.Types {
 		fmt.Println("-", t.Type.Name)
-	}
-	fmt.Println("Evoluciona a:", pokemon.EvolvesTo)
-	fmt.Println("Aparece en los juegos:")
-	for _, g := range pokemon.AppearIn {
-		fmt.Println("-", g.Name)
 	}
 }
