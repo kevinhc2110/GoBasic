@@ -10,10 +10,13 @@ import (
 // Petición a web
 
 func PeticionHTTP() {
+
 	// URL de la página web a la que queremos hacer la petición
+
 	url := "https://www.wikipedia.org/"
 
 	// Realizamos la petición GET
+
 	resp, err := http.Get(url)
 	if err != nil {
 		fmt.Printf("Error realizando la petición: %v\n", err)
@@ -22,12 +25,14 @@ func PeticionHTTP() {
 	defer resp.Body.Close()
 
 	// Verificamos que la petición fue exitosa (código de estado 200)
+
 	if resp.StatusCode != http.StatusOK {
 		fmt.Printf("Error: estado de respuesta %d\n", resp.StatusCode)
 		return
 	}
 
 	// Leemos el contenido de la respuesta
+
 	body, err := ioutil.ReadAll(resp.Body)
 	if err != nil {
 		fmt.Printf("Error leyendo el cuerpo de la respuesta: %v\n", err)
@@ -35,6 +40,7 @@ func PeticionHTTP() {
 	}
 
 	// Mostramos el contenido de la página web en la consola
+	
 	fmt.Println(string(body))
 }
 
