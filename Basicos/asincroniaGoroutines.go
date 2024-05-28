@@ -18,7 +18,7 @@ func ejecutarAsincrono(nombre string, duracion int, done chan bool) {
 	done <- true
 }
 
-func asincroniaGoroutines()/*main*/ {
+func asincroniaGoroutines() {
 
 	// Crear un canal para sincronización
 
@@ -34,3 +34,4 @@ func asincroniaGoroutines()/*main*/ {
 	<-done
 	fmt.Println("La ejecución ha finalizado")
 }
+

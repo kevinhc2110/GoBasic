@@ -41,7 +41,6 @@ func main()  {
 	canales()
 	cadenaCaracteres()
 	fechas()
-	asincroniaGoroutines()
 	formateo()
 	caracteresEscape()
 	expresionesRegulares()
@@ -52,4 +51,6 @@ func main()  {
 	PeticiónAPI()
 	callbacks()
 	clousure()
+	contexto()
+	asincroniaGoroutines()
 }
