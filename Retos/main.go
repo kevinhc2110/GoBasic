@@ -1,8 +1,14 @@
 package main
 
 // func main() {
+
 // 	fizzbuzz()
 // 	Anagrama()
 // 	fibonacci()
-//	primo()
+// 	primo()
+// 	areaPoligono()
+// 	aspectRatio()
+// 	invirtiendoCadenas()
+// 	contandoPalabras()
+// 	decimalBinario()
 // }
