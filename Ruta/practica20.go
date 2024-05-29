@@ -18,15 +18,14 @@ utilizando su nombre o número.
 - Controla posibles errores
 */
 
-const baseURL = "https://pokeapi.co/api/v2/pokemon/" // URL base de la PokéAPI
-
-// Definición de estructuras para mapear los datos JSON
+// Estructuras para mapear los datos JSON
 type Pokemon struct {
-	Name   string        `json:"name"`
-	ID     int           `json:"id"`
-	Weight int           `json:"weight"`
-	Height int           `json:"height"`
-	Types  []PokemonType `json:"types"`
+	Name       string        `json:"name"`
+	ID         int           `json:"id"`
+	Weight     int           `json:"weight"`
+	Height     int           `json:"height"`
+	Types      []PokemonType `json:"types"`
+	GameIndices []GameIndex   `json:"game_indices"`
 }
 
 type PokemonType struct {
@@ -37,60 +36,175 @@ type TypeDetail struct {
 	Name string `json:"name"`
 }
 
-func main() {
-	
+type Species struct {
+	EvolutionChain EvolutionChain `json:"evolution_chain"`
+}
+
+type EvolutionChain struct {
+	URL string `json:"url"`
+}
+
+type Evolution struct {
+	Chain Chain `json:"chain"`
+}
+
+type Chain struct {
+	Species    SpeciesDetail `json:"species"`
+	EvolvesTo  []Chain       `json:"evolves_to"`
+}
+
+type SpeciesDetail struct {
+	Name string `json:"name"`
+}
+
+type GameIndex struct {
+	Version VersionDetail `json:"version"`
+}
+
+type VersionDetail struct {
+	Name string `json:"name"`
+}
+
+func practica20() {
+	const baseURL = "https://pokeapi.co/api/v2/pokemon/"
 	var pokemonName string
 
 	// Verificar si se proporciona un nombre de Pokémon como argumento en la línea de comandos
-
 	if len(os.Args) < 2 {
-		// Si no se proporciona, solicitar al usuario que ingrese el nombre o número del Pokémon
 		fmt.Println("Por favor, ingresa el nombre o número del Pokémon:")
-		fmt.Scanln(&pokemonName) // Leer la entrada del usuario desde la terminal
+		fmt.Scanln(&pokemonName)
 	} else {
-		pokemonName = os.Args[1] // Usar el argumento proporcionado como el nombre del Pokémon
+		pokemonName = os.Args[1]
 	}
 
-	// Formatear el nombre del Pokémon para que coincida con el formato de la URL de la PokéAPI
+	pokemonName = strings.ToLower(strings.Replace(pokemonName, " ", "-", -1))
 
-	pokemonName = strings.Replace(pokemonName, " ", "-", -1)
-
-	// Realizar la solicitud GET a la PokéAPI para obtener información del Pokémon
-
-	resp, err := http.Get(baseURL + pokemonName)
+	// Obtener información del Pokémon
+	pokemon, err := getPokemonInfo(baseURL + pokemonName)
 	if err != nil {
-		fmt.Printf("Error realizando la petición: %v\n", err)
-		return
-	}
-	defer resp.Body.Close() // Cerrar el cuerpo de la respuesta después de que la función main haya terminado
-
-	// Verificar si la solicitud fue exitosa (código de estado 200)
-
-	if resp.StatusCode != http.StatusOK {
-		fmt.Printf("Error: estado de respuesta %d\n", resp.StatusCode)
+		fmt.Printf("Error: %v\n", err)
 		return
 	}
 
-	// Decodificar el JSON de la respuesta en la estructura Pokemon
-
-	var pokemon Pokemon
-	err = json.NewDecoder(resp.Body).Decode(&pokemon)
+	// Obtener información de la especie para la cadena de evolución
+	speciesURL := fmt.Sprintf("https://pokeapi.co/api/v2/pokemon-species/%d/", pokemon.ID)
+	evolutionChainURL, err := getEvolutionChainURL(speciesURL)
 	if err != nil {
-		fmt.Printf("Error decodificando JSON: %v\n", err)
+		fmt.Printf("Error: %v\n", err)
 		return
 	}
+
+	// Obtener la cadena de evoluciones
+	evolutionNames, err := getEvolutionChain(evolutionChainURL)
+	if err != nil {
+		fmt.Printf("Error: %v\n", err)
+		return
+	}
+
+	// Obtener los juegos en los que aparece el Pokémon
+	games := getGames(pokemon)
 
 	// Mostrar la información del Pokémon
-
-	fmt.Println("Nombre:", pokemon.Name)
+	fmt.Println("Nombre:", strings.Title(pokemon.Name))
 	fmt.Println("ID:", pokemon.ID)
 	fmt.Println("Peso:", pokemon.Weight)
 	fmt.Println("Altura:", pokemon.Height)
 	fmt.Println("Tipos:")
-
-	// Mostrar los tipos del Pokémon
-
 	for _, t := range pokemon.Types {
-		fmt.Println("-", t.Type.Name)
+		fmt.Println("-", strings.Title(t.Type.Name))
 	}
+	fmt.Println("Evoluciones:")
+	for _, name := range evolutionNames {
+		fmt.Println("-", strings.Title(name))
+	}
+	fmt.Println("Aparece en los juegos:")
+	for _, game := range games {
+		fmt.Println("-", strings.Title(game))
+	}
+}
+
+func getPokemonInfo(url string) (Pokemon, error) {
+	resp, err := http.Get(url)
+	if err != nil {
+		return Pokemon{}, fmt.Errorf("error realizando la petición: %v", err)
+	}
+	defer resp.Body.Close()
+
+	if resp.StatusCode != http.StatusOK {
+		return Pokemon{}, fmt.Errorf("error: estado de respuesta %d", resp.StatusCode)
+	}
+
+	var pokemon Pokemon
+	err = json.NewDecoder(resp.Body).Decode(&pokemon)
+	if err != nil {
+		return Pokemon{}, fmt.Errorf("error decodificando JSON: %v", err)
+	}
+
+	return pokemon, nil
+}
+
+func getEvolutionChainURL(url string) (string, error) {
+	resp, err := http.Get(url)
+	if err != nil {
+		return "", fmt.Errorf("error realizando la petición: %v", err)
+	}
+	defer resp.Body.Close()
+
+	if resp.StatusCode != http.StatusOK {
+		return "", fmt.Errorf("error: estado de respuesta %d", resp.StatusCode)
+	}
+
+	var species Species
+	err = json.NewDecoder(resp.Body).Decode(&species)
+	if err != nil {
+		return "", fmt.Errorf("error decodificando JSON: %v", err)
+	}
+
+	return species.EvolutionChain.URL, nil
+}
+
+func getEvolutionChain(url string) ([]string, error) {
+	resp, err := http.Get(url)
+	if err != nil {
+		return nil, fmt.Errorf("error realizando la petición: %v", err)
+	}
+	defer resp.Body.Close()
+
+	if resp.StatusCode != http.StatusOK {
+		return nil, fmt.Errorf("error: estado de respuesta %d", resp.StatusCode)
+	}
+
+	var evolution Evolution
+	err = json.NewDecoder(resp.Body).Decode(&evolution)
+	if err != nil {
+		return nil, fmt.Errorf("error decodificando JSON: %v", err)
+	}
+
+	var evolutionNames []string
+	evolutionNames = append(evolutionNames, evolution.Chain.Species.Name)
+	evolutionNames = append(evolutionNames, getEvolvesToNames(evolution.Chain.EvolvesTo)...)
+
+	return evolutionNames, nil
+}
+
+func getEvolvesToNames(chains []Chain) []string {
+	var names []string
+	for _, chain := range chains {
+		names = append(names, chain.Species.Name)
+		names = append(names, getEvolvesToNames(chain.EvolvesTo)...)
+	}
+	return names
+}
+
+func getGames(pokemon Pokemon) []string {
+	gameSet := make(map[string]struct{})
+	for _, gameIndex := range pokemon.GameIndices {
+		gameSet[gameIndex.Version.Name] = struct{}{}
+	}
+
+	var games []string
+	for game := range gameSet {
+		games = append(games, game)
+	}
+	return games
 }
