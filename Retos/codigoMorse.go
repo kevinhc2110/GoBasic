@@ -8,6 +8,19 @@ import (
 	"strings"
 )
 
+/*
+Crea un programa que sea capaz de transformar texto natural a código
+morse y viceversa.
+- Debe detectar automáticamente de qué tipo se trata y realizar
+  la conversión.
+- En morse se soporta raya "—", punto ".", un espacio " " entre letras
+  o símbolos y dos espacios entre palabras "  ".
+- El alfabeto morse soportado será el mostrado en
+  https://es.wikipedia.org/wiki/Código_morse.
+*/
+
+// Aunque es una opción es ams eficiente usar claves como runas ' '
+
 var diccionarioMorse = map[string]string{
 	"A": ".-",
 	"B": "-...",
@@ -51,19 +64,21 @@ var diccionarioMorse = map[string]string{
 	"!": "-.-.--.-",
 }
 
-func main() {
+func codigoMorse() {
 
 	fmt.Println("Ingrese un texto o un código morse para convertir")
 	scanner := bufio.NewScanner(os.Stdin)
 	scanner.Scan()
 	texto := scanner.Text()
 
-	tipoCoversion := detectarTipo(texto)
+	textoMayuscula := strings.ToUpper(texto)
 
-	if tipoCoversion == "texto" {
-		println(conversionMorse(texto))
-	}else if tipoCoversion == "morse"{
-		println(conversionTexto(texto))
+	tipoConversion := detectarTipo(textoMayuscula)
+
+	if tipoConversion == "texto" {
+		fmt.Println(conversionMorse(textoMayuscula))
+	}else if tipoConversion == "morse"{
+		fmt.Println(conversionTexto(textoMayuscula))
 	}else {
 		fmt.Println("Entrada no validad, intente de nuevo")
 	}
@@ -72,14 +87,14 @@ func main() {
 
 func conversionMorse(texto string) string {
 
-	textoMayuscula := strings.ToUpper(texto)
 	conversionMorse := ""
 
-	for _, codigo := range textoMayuscula {
+	for _, codigo := range texto {
 
 		if codigo >= 'A' && codigo <= 'Z' || codigo >= '0' && codigo <= '9' || codigo == '.' || codigo == ',' || codigo == '?' || codigo == '!'  {
 			conversionMorse += diccionarioMorse[string(codigo)] + " "
 		} else {
+			// Si el carácter no cumple la condición se agrega directamente
 			conversionMorse += string(codigo) 
 		}
 	}
@@ -89,36 +104,36 @@ func conversionMorse(texto string) string {
 
 func conversionTexto(morse string) string {
 	
-	// Reemplaza todas las ocurrencias de doble espacio ("  ") por un solo espacio (" ")
-	morseSinEspacios := strings.ReplaceAll(morse, "  ", " ")
-	// Divide la cadena de Morse en palabras separadas por un espacio
-	palabras := strings.Fields(morseSinEspacios)
+	// Divide la cadena de Morse en palabras separadas por dos espacios, se genera un array
+	palabras := strings.Split(morse, "  ")
+	
 	textoDecodificado := ""
 
 	// Itera sobre cada palabra en la lista de palabras Morse
 	for _, palabra := range palabras {
-
-			// Divide la palabra Morse en letras individuales separadas por un espacio
-			letras := strings.Fields(palabra)
-			// Itera sobre cada letra en la palabra Morse
-			for _, letra := range letras {
-					// Busca en el diccionario Morse la clave correspondiente al valor (letra Morse)
-					for clave, valor := range diccionarioMorse {
-							if valor == letra {
-									textoDecodificado += clave
-									break
-							}
-					}
+		// Divide la palabra Morse en letras individuales separadas por un espacio
+		letras := strings.Split(palabra, " ")
+		// Itera sobre cada letra en la palabra Morse
+		for _, letra := range letras {
+			// Busca en el diccionario Morse la clave correspondiente al valor (letra Morse)
+			for clave, valor := range diccionarioMorse {
+				if valor == letra {
+					textoDecodificado += clave
+					break
+				}
 			}
-			textoDecodificado += " "
+		}
+		// Esto genera espacio en el principio, en la separación y en final
+		textoDecodificado += " "
 	}
+	// Con esto eliminamos los espacio en el inicio y en el final
 	textoDecodificado = strings.TrimSpace(textoDecodificado)
 	return textoDecodificado
 }
 
 func detectarTipo(entrada string) string {
 
-	if regexp.MustCompile("[A-Z]").MatchString(entrada) {
+	if regexp.MustCompile("[A-Z0-9.,?!-]").MatchString(entrada) {
 			return "texto"
 	} else if regexp.MustCompile("[.-]").MatchString(entrada) {
 			return "morse"
