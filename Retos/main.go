@@ -1,15 +1,16 @@
 package main
 
-// func main() {
+func main() {
 
-// 	fizzbuzz()
-// 	Anagrama()
-// 	fibonacci()
-// 	primo()
-// 	areaPoligono()
-// 	aspectRatio()
-// 	invirtiendoCadenas()
-// 	contandoPalabras()
-// 	decimalBinario()
-// 	codigoMorse()
-// }
+	fizzbuzz()
+	Anagrama()
+	fibonacci()
+	primo()
+	areaPoligono()
+	aspectRatio()
+	invirtiendoCadenas()
+	contandoPalabras()
+	decimalBinario()
+	codigoMorse()
+	expresionEquilibrada()
+}
