@@ -13,4 +13,6 @@ func main() {
 	decimalBinario()
 	codigoMorse()
 	expresionEquilibrada()
+	eliminandoCaracteres()
+	palindromo()
 }
