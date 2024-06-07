@@ -35,10 +35,13 @@ func practica06()/*main*/ {
 
 func factorial(n int)int {
 
+	// Caso base: Si n es 0, el factorial de 0 es 1
+
 	if n == 0 {
 		return 1
 	}
 
+	// Caso recursivo: n multiplicado por el factorial de (n-1)
 	return n * factorial((n-1))
 }
 

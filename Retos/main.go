@@ -15,4 +15,8 @@ func main() {
 	expresionEquilibrada()
 	eliminandoCaracteres()
 	palindromo()
+	factorialRecursivo()
+	esArmstrong()
+	cuantosDias()
+	esMayuscula()
 }
