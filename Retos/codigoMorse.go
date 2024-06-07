@@ -6,6 +6,7 @@ import (
 	"os"
 	"regexp"
 	"strings"
+	"unicode"
 )
 
 /*
@@ -73,11 +74,25 @@ func codigoMorse() {
 
 	textoMayuscula := strings.ToUpper(texto)
 
+	// Opcion 1 DetectatTipo
+
 	tipoConversion := detectarTipo(textoMayuscula)
 
 	if tipoConversion == "texto" {
 		fmt.Println(conversionMorse(textoMayuscula))
 	}else if tipoConversion == "morse"{
+		fmt.Println(conversionTexto(textoMayuscula))
+	}else {
+		fmt.Println("Entrada no validad, intente de nuevo")
+	}
+
+	// Opcion 2 DetectatTipo
+
+	tipoConversion2 := detectarTipo(textoMayuscula)
+
+	if tipoConversion2 == "texto" {
+		fmt.Println(conversionMorse(textoMayuscula))
+	}else if tipoConversion2 == "morse"{
 		fmt.Println(conversionTexto(textoMayuscula))
 	}else {
 		fmt.Println("Entrada no validad, intente de nuevo")
@@ -131,6 +146,8 @@ func conversionTexto(morse string) string {
 	return textoDecodificado
 }
 
+// Opción 1 DetectatTipo
+
 func detectarTipo(entrada string) string {
 
 	if regexp.MustCompile("[A-Z0-9.,?!-]").MatchString(entrada) {
@@ -139,5 +156,33 @@ func detectarTipo(entrada string) string {
 			return "morse"
 	} else {
 			return "invalido"
+	}
+}
+
+// Opcion 2 DetectatTipo
+
+func detectarTipo2(entrada string) string {
+
+	esTexto := false
+	esMorse := false
+
+	for _, char := range entrada {
+		if unicode.IsLetter(char) || unicode.IsDigit(char) || char == '.' || char == ',' || char == '?' || char == '!' || char == '-' {
+			esTexto = true
+		} else if char == '.' || char == '-' {
+			esMorse = true
+		} else {
+			// Si encontramos un caracter que no es ni texto ni morse, retornamos "invalido"
+			return "invalido"
+		}
+	}
+
+	if esTexto && !esMorse {
+		return "texto"
+	} else if esMorse && !esTexto {
+		return "morse"
+	} else {
+		// Si la cadena contiene caracteres de ambos tipos, retornamos "invalido"
+		return "invalido"
 	}
 }
