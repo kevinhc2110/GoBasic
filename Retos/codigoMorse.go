@@ -88,7 +88,7 @@ func codigoMorse() {
 
 	// Opcion 2 DetectatTipo
 
-	tipoConversion2 := detectarTipo(textoMayuscula)
+	tipoConversion2 := detectarTipo2(textoMayuscula)
 
 	if tipoConversion2 == "texto" {
 		fmt.Println(conversionMorse(textoMayuscula))
