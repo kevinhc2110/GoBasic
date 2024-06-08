@@ -74,7 +74,7 @@ func codigoMorse() {
 
 	textoMayuscula := strings.ToUpper(texto)
 
-	// Opcion 1 DetectatTipo
+	// Opción 1 DetectatTipo
 
 	tipoConversion := detectarTipo(textoMayuscula)
 
@@ -86,7 +86,7 @@ func codigoMorse() {
 		fmt.Println("Entrada no validad, intente de nuevo")
 	}
 
-	// Opcion 2 DetectatTipo
+	// Opción 2 DetectatTipo
 
 	tipoConversion2 := detectarTipo2(textoMayuscula)
 

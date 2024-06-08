@@ -19,4 +19,5 @@ func main() {
 	esArmstrong()
 	cuantosDias()
 	esMayuscula()
+	carreraObstaculos()
 }
