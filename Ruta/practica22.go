@@ -28,7 +28,7 @@ type Estudiante struct{
 
 }
 
-func main() {
+func practica22() {
 
 	estudiantes := []Estudiante{
 		{	
