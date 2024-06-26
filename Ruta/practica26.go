@@ -85,12 +85,12 @@ func (l *Library) ProcesarPrestamo(usuarioID, libroTitulo string) {
 	fmt.Println("No se pudo procesar el préstamo")
 }
 
-func nosrp() {
-	biblioteca := Library{}
-	biblioteca.RegistrarLibro("El Quijote", "Miguel de Cervantes", 3)
-	biblioteca.RegistrarUsuario("Juan Perez", "1234", "juan@example.com")
-	biblioteca.ProcesarPrestamo("1234", "El Quijote")
-}
+// func nosrp() {
+// 	biblioteca := Library{}
+// 	biblioteca.RegistrarLibro("El Quijote", "Miguel de Cervantes", 3)
+// 	biblioteca.RegistrarUsuario("Juan Perez", "1234", "juan@example.com")
+// 	biblioteca.ProcesarPrestamo("1234", "El Quijote")
+// }
 
 // La clase Library maneja múltiples responsabilidades: registrar libros, registrar usuarios y procesar préstamos. Esto va en contra del SRP.
 

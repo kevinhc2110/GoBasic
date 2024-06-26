@@ -1,7 +1,6 @@
 package main
 
 func main() {
-
 	fizzbuzz()
 	Anagrama()
 	fibonacci()
@@ -20,4 +19,6 @@ func main() {
 	cuantosDias()
 	esMayuscula()
 	carreraObstaculos()
+	tresEnRaya()
+	convertirTiempo()
 }
