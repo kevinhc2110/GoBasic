@@ -61,8 +61,8 @@ func (c Calculator) PerformOperation(op Operation, a, b float64) float64 {
 }
 
 func practica27() {
-	calculator := Calculator{}
 
+	calculator := Calculator{}
 	add := Add{}
 	subtract := Subtract{}
 	multiply := Multiply{}

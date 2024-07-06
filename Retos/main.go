@@ -21,4 +21,6 @@ func main() {
 	carreraObstaculos()
 	tresEnRaya()
 	convertirTiempo()
+	parandoTiempo()
+	calculadoraTXT()
 }
