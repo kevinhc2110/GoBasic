@@ -6,4 +6,5 @@ func main() {
 	scrabble()
 	legibilidad()
 	cifradoSustitucion()
+	pluralidad()
 }
