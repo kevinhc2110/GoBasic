@@ -1,3 +1,5 @@
+//* Logs
+
 package main
 
 import (

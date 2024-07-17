@@ -5,6 +5,8 @@ import (
 	"strings"
 )
 
+//* Problema 2 Scrabble
+
 func scrabbleValues(palabra string) int {
 
 	scrabbleValues := map[rune]int{

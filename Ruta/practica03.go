@@ -1,3 +1,5 @@
+//* Estructuras de datos
+
 package main
 
 import (

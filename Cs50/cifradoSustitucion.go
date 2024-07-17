@@ -6,6 +6,8 @@ import (
 	"strings"
 )
 
+//* Problema 2 Substitution
+
 func cifradoSustitucion() {
 	// Verifica si se proporciona un único argumento de línea de comandos
 	if len(os.Args) != 2 {

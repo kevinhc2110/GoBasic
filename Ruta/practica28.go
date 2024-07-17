@@ -1,3 +1,5 @@
+//* Solid: Principio de sustitución de liskov (LSP)
+
 package main
 
 import "fmt"

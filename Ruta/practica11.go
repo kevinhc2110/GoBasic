@@ -1,3 +1,5 @@
+//* Manejo de ficheros
+
 package main
 
 import (

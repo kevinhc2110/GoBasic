@@ -1,3 +1,5 @@
+//* Cadena de caracteres
+
 package main
 
 /*

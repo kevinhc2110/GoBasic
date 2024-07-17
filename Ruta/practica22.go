@@ -1,3 +1,5 @@
+//* Funciones de orden superior
+
 package main
 
 import (

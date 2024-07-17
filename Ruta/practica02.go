@@ -1,3 +1,5 @@
+//* Funciones y alcance
+
 package main
 
 import "fmt"

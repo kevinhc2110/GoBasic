@@ -6,6 +6,8 @@ import (
 	"strconv"
 )
 
+//* Problema 1 Credit
+
 func credito() {
 
 var cardNumber string

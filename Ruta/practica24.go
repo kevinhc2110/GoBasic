@@ -1,3 +1,5 @@
+//* Patrones de diseño: Decoradores
+
 package main
 
 /*

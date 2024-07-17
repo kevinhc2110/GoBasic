@@ -1,3 +1,5 @@
+//* Enumeraciones
+
 package main
 
 import (

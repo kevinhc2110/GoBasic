@@ -1,3 +1,5 @@
+//* Patrones de diseño: Singleton
+
 package main
 
 import (

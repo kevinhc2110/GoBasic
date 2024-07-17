@@ -2,6 +2,8 @@ package main
 
 import "fmt"
 
+//* Problema 1 Mario
+
 func mario() {
 
 	var altura int

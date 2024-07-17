@@ -9,6 +9,8 @@ import (
 	"unicode"
 )
 
+//* Problema 2 Readability
+
 func legibilidad() {
 
 	fmt.Println("Ingrese el texto a analizar")

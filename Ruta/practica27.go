@@ -1,3 +1,5 @@
+//* Solid: Principio abierto-cerrado (OCP)
+
 package main
 
 import (

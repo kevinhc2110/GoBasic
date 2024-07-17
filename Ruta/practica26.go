@@ -1,3 +1,5 @@
+//* Solid: Principio de responsabilidad única (SRP)
+
 package main
 
 import (

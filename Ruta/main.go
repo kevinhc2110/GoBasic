@@ -29,4 +29,5 @@ func main() {
 	practica26()
 	practica27()
 	practica28()
+	practica29()
 }
