@@ -7,7 +7,7 @@ import (
 	"strings"
 )
 
-//* Problema 2 Plurality
+//* Problema 3 Plurality
 
 // Definición de constantes y estructuras
 

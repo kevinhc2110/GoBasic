@@ -6,7 +6,7 @@ import (
 	"sort"
 )
 
-//* Problema 2 Tideman
+//* Problema 3 Tideman
 
 // preferences[i][j] es el número de votantes que prefieren i sobre j
 var preferences [MAX][MAX]int
