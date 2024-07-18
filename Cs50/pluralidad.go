@@ -7,6 +7,8 @@ import (
 	"strings"
 )
 
+//* Problema 2 Plurality
+
 // Definición de constantes y estructuras
 
 // Número máximo de candidatos
@@ -32,22 +34,24 @@ func pluralidad() {
 	}
 
 	// Poblar el arreglo de candidatos desde los argumentos de la línea de comandos
+	// Se le debe restar 1 porque os.Args incluye el nombre del programa como su primer elemento, seguido por los argumentos de la línea de comandos.
 	NumeroDeCandidatos = len(os.Args) - 1
 	if NumeroDeCandidatos > MAX {
 		fmt.Printf("El número máximo de candidatos es %d\n", MAX)
 		os.Exit(2)
 	}
 	for i := 0; i < NumeroDeCandidatos; i++ {
+		// Se debe sumar 1 por que el primer valor del array de argumentos es el nombre del programa
 		Candidatos[i].Nombre = os.Args[i+1]
 		Candidatos[i].Votos = 0
 	}
 
 	// Obtener el número de votantes desde la entrada estándar
-	numeroDeVotantes := obtenerEntero("Número de votantes: ")
+	numeroDeVotantes := ObtenerEntero("Número de votantes: ")
 
 	// Iterar sobre todos los votantes
 	for i := 0; i < numeroDeVotantes; i++ {
-		nombre := obtenerCadena("Voto: ")
+		nombre := ObtenerCadena("Voto: ")
 
 		// Verificar si el voto es válido
 		if !votar(nombre) {
@@ -62,7 +66,7 @@ func pluralidad() {
 // Funciones auxiliares
 
 // Función para leer un entero desde la entrada estándar
-func obtenerEntero(prompt string) int {
+func ObtenerEntero(prompt string) int {
 	var num int
 	for {
 		fmt.Print(prompt)
@@ -77,7 +81,7 @@ func obtenerEntero(prompt string) int {
 }
 
 // Función para leer una cadena desde la entrada estándar
-func obtenerCadena(prompt string) string {
+func ObtenerCadena(prompt string) string {
 	fmt.Print(prompt)
 	scanner := bufio.NewScanner(os.Stdin)
 	scanner.Scan()

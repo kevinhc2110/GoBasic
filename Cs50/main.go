@@ -7,4 +7,5 @@ func main() {
 	legibilidad()
 	cifradoSustitucion()
 	pluralidad()
+	tideman()
 }
