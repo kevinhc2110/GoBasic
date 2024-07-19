@@ -80,9 +80,9 @@ func codigoMorse() {
 
 	if tipoConversion == "texto" {
 		fmt.Println(conversionMorse(textoMayuscula))
-	}else if tipoConversion == "morse"{
+	} else if tipoConversion == "morse" {
 		fmt.Println(conversionTexto(textoMayuscula))
-	}else {
+	} else {
 		fmt.Println("Entrada no validad, intente de nuevo")
 	}
 
@@ -92,9 +92,9 @@ func codigoMorse() {
 
 	if tipoConversion2 == "texto" {
 		fmt.Println(conversionMorse(textoMayuscula))
-	}else if tipoConversion2 == "morse"{
+	} else if tipoConversion2 == "morse" {
 		fmt.Println(conversionTexto(textoMayuscula))
-	}else {
+	} else {
 		fmt.Println("Entrada no validad, intente de nuevo")
 	}
 
@@ -106,11 +106,11 @@ func conversionMorse(texto string) string {
 
 	for _, codigo := range texto {
 
-		if codigo >= 'A' && codigo <= 'Z' || codigo >= '0' && codigo <= '9' || codigo == '.' || codigo == ',' || codigo == '?' || codigo == '!'  {
+		if codigo >= 'A' && codigo <= 'Z' || codigo >= '0' && codigo <= '9' || codigo == '.' || codigo == ',' || codigo == '?' || codigo == '!' {
 			conversionMorse += diccionarioMorse[string(codigo)] + " "
 		} else {
 			// Si el carácter no cumple la condición se agrega directamente
-			conversionMorse += string(codigo) 
+			conversionMorse += string(codigo)
 		}
 	}
 	conversionMorse = strings.TrimSpace(conversionMorse)
@@ -118,10 +118,10 @@ func conversionMorse(texto string) string {
 }
 
 func conversionTexto(morse string) string {
-	
+
 	// Divide la cadena de Morse en palabras separadas por dos espacios, se genera un array
 	palabras := strings.Split(morse, "  ")
-	
+
 	textoDecodificado := ""
 
 	// Itera sobre cada palabra en la lista de palabras Morse
@@ -151,11 +151,11 @@ func conversionTexto(morse string) string {
 func detectarTipo(entrada string) string {
 
 	if regexp.MustCompile("[A-Z0-9.,?!-]").MatchString(entrada) {
-			return "texto"
+		return "texto"
 	} else if regexp.MustCompile("[.-]").MatchString(entrada) {
-			return "morse"
+		return "morse"
 	} else {
-			return "invalido"
+		return "invalido"
 	}
 }
 

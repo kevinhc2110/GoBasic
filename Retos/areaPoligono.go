@@ -23,7 +23,7 @@ func areaPoligono() {
 	triangulo := Triangulo{Base: 5, Altura: 3}
 	cuadrado := Cuadrado{Lado: 4}
 	rectangulo := Rectangulo{Base: 6, Altura: 2}
-	
+
 	fmt.Printf("Área del triángulo: %.2f\n", CalcularArea1(triangulo))
 	fmt.Printf("Área del cuadrado: %.2f\n", CalcularArea1(cuadrado))
 	fmt.Printf("Área del rectángulo: %.2f\n", CalcularArea1(rectangulo))
@@ -43,7 +43,7 @@ func areaPoligono() {
 // La sintaxis params ...float64 en la firma de la función CalcularArea indica que la función puede aceptar un número variable de parámetros de tipo float64.
 
 func CalcularArea(tipo string, params ...float64) float64 {
-	
+
 	switch tipo {
 	case "triangulo":
 		base, altura := params[0], params[1]
@@ -131,4 +131,3 @@ func AreaCuadrado(lado float64) float64 {
 func AreaRectangulo(base, altura float64) float64 {
 	return base * altura
 }
-

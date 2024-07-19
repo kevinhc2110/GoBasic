@@ -35,7 +35,7 @@ var tasks []Task
 func init() {
 	// Configuración del formateador de log para incluir marcas de tiempo completas
 	log.SetFormatter(&log.TextFormatter{
-			FullTimestamp: true,
+		FullTimestamp: true,
 	})
 	// Establecer el nivel de log en DebugLevel para capturar todos los niveles de logs
 	log.SetLevel(log.DebugLevel)
@@ -47,7 +47,7 @@ func addTask(name string, description string) {
 	// Crear una nueva tarea y añadirla al slice de tareas
 	task := Task{Name: name, Description: description}
 	tasks = append(tasks, task)
-	 // Registrar mensajes de información y depuración
+	// Registrar mensajes de información y depuración
 	log.Infof("Tarea añadida: %s", name)
 	log.Debugf("Descripción: %s", description)
 	// Calcular y registrar el tiempo de ejecución de la operación
@@ -60,18 +60,18 @@ func removeTask(name string) {
 	// Buscar la tarea en el slice
 	index := -1
 	for i, task := range tasks {
-			if task.Name == name {
-					index = i
-					break
-			}
+		if task.Name == name {
+			index = i
+			break
+		}
 	}
-	 // Si se encuentra la tarea, eliminarla del slice
+	// Si se encuentra la tarea, eliminarla del slice
 	if index != -1 {
-			tasks = append(tasks[:index], tasks[index+1:]...)
-			log.Infof("Tarea eliminada: %s", name)
+		tasks = append(tasks[:index], tasks[index+1:]...)
+		log.Infof("Tarea eliminada: %s", name)
 	} else {
-		 // Si no se encuentra, registrar una advertencia
-			log.Warnf("Tarea no encontrada: %s", name)
+		// Si no se encuentra, registrar una advertencia
+		log.Warnf("Tarea no encontrada: %s", name)
 	}
 	elapsed := time.Since(start)
 	log.Infof("Tiempo de ejecución de eliminar tarea: %s", elapsed)
@@ -80,12 +80,12 @@ func removeTask(name string) {
 func listTasks() {
 	start := time.Now()
 	if len(tasks) == 0 {
-			log.Warn("No hay tareas para mostrar")
+		log.Warn("No hay tareas para mostrar")
 	} else {
-			log.Info("Listando tareas:")
-			for _, task := range tasks {
-					fmt.Printf("Nombre: %s, Descripción: %s\n", task.Name, task.Description)
-			}
+		log.Info("Listando tareas:")
+		for _, task := range tasks {
+			fmt.Printf("Nombre: %s, Descripción: %s\n", task.Name, task.Description)
+		}
 	}
 	elapsed := time.Since(start)
 	log.Infof("Tiempo de ejecución de listar tareas: %s", elapsed)

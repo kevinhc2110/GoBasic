@@ -15,8 +15,8 @@ import (
 
 // Contador struct para mantener el conteo de llamadas
 type Contador struct {
-	mu       sync.Mutex
-	funcion  func()
+	mu          sync.Mutex
+	funcion     func()
 	numLlamadas int
 }
 

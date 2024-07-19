@@ -29,7 +29,7 @@ func palindromo() {
 	} else {
 		fmt.Printf("El texto \"%s\" no es un palíndromo.\n", texto)
 	}
-	
+
 }
 
 func eliminarTildes(texto string) string {
@@ -45,12 +45,12 @@ func eliminarTildes(texto string) string {
 
 	for _, char := range texto {
 
-		// cambio, encontrado := sinTildes[char]: Intenta encontrar el carácter char en el mapa 
+		// cambio, encontrado := sinTildes[char]: Intenta encontrar el carácter char en el mapa
 		// sinTildes. Si se encuentra, cambio contendrá el valor asociado (el carácter sin tilde y encontrado será true
 		// Si no se encuentra, cambio será el valor cero del tipo rune y encontrado será false.
-		if cambio, encontrado := sinTildes[char]; encontrado{
+		if cambio, encontrado := sinTildes[char]; encontrado {
 			textoSinTildes.WriteRune(cambio)
-		}else {
+		} else {
 			textoSinTildes.WriteRune(char)
 		}
 	}
@@ -66,7 +66,7 @@ func esPalindromo(texto string) bool {
 	var filtrado strings.Builder
 
 	for _, char := range texto {
-		if unicode.IsLetter(char){
+		if unicode.IsLetter(char) {
 			filtrado.WriteRune(char)
 		}
 	}
@@ -75,17 +75,16 @@ func esPalindromo(texto string) bool {
 
 	reverso := reverse(textoFiltrado)
 
-
 	return textoFiltrado == reverso
 }
 
-func reverse(texto string)string  {
+func reverse(texto string) string {
 
 	runas := []rune(texto)
 
-	for i,j := 0, len(runas)-1; i<j ; i,j = i+1, j-1 {
+	for i, j := 0, len(runas)-1; i < j; i, j = i+1, j-1 {
 		runas[i], runas[j] = runas[j], runas[i]
 	}
-	
+
 	return string(runas)
 }

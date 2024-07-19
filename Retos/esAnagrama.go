@@ -16,7 +16,7 @@ las letras de otra palabra inicial.
 */
 
 func Anagrama() {
-	
+
 	if esAnagrama1("amor", "roma") {
 		fmt.Println("Las palabras son anagramas")
 	} else {
@@ -56,22 +56,22 @@ func esAnagrama1(palabra1, palabra2 string) bool {
 // Opción 2
 
 func esAnagrama2(palabra1, palabra2 string) bool {
-	
+
 	if len(palabra1) != len(palabra2) {
-			return false
+		return false
 	}
 
 	//Recorre cada carácter (c) en la palabra palabra1.
-  //Si el carácter c ya existe como clave en el mapa cuenta1, su valor (número de veces que aparece) se incrementa en 1.
-	
+	//Si el carácter c ya existe como clave en el mapa cuenta1, su valor (número de veces que aparece) se incrementa en 1.
+
 	cuenta1 := make(map[rune]int)
 	for _, c := range palabra1 {
-			cuenta1[c]++
+		cuenta1[c]++
 	}
 
 	cuenta2 := make(map[rune]int)
 	for _, c := range palabra2 {
-			cuenta2[c]++
+		cuenta2[c]++
 	}
 
 	// Recorre cada elemento (clave-valor) del mapa cuenta1
@@ -81,9 +81,9 @@ func esAnagrama2(palabra1, palabra2 string) bool {
 	for c, n := range cuenta1 {
 
 		// Esta línea verifica si la frecuencia de la letra c en el mapa cuenta2 (palabra2) coincide con la frecuencia en cuenta1 (palabra1).
-		
+
 		if cuenta2[c] != n {
-				return false
+			return false
 		}
 	}
 

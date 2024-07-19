@@ -9,7 +9,7 @@ sin usar funciones propias del lenguaje que lo hagan de forma automática.
 */
 
 func invirtiendoCadenas() {
-	
+
 	var palabra string
 
 	fmt.Println("Ingrese una palabra par invertir")

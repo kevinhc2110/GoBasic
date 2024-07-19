@@ -30,11 +30,11 @@ func cuantosDias() {
 	fmt.Printf("Diferencia en días entre %s y %s: %d días\n", fecha1, fecha2, dias)
 }
 
-func diferenciaDias(fecha1 string, fecha2 string) (int, error)  {
-	
+func diferenciaDias(fecha1 string, fecha2 string) (int, error) {
+
 	// Analizar las cadenas de texto y convertirlas en objetos time.Time
 	// El primer argumento ("02/01/2006") especifica el diseño esperado de la cadena de fecha
-	
+
 	fechaTime1, err := time.Parse("02/01/2006", fecha1)
 	if err != nil {
 		// Se retorna 0 en el caso de que una fecha no sea válida es para indicar claramente que no se pudo calcular la diferencia entre las fechas debido a un problema con una de ellas

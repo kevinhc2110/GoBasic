@@ -89,7 +89,7 @@ func (queue *Queue1) Print() {
 	}
 }
 
-func practica08()/*main*/ {
+func practica08() /*main*/ {
 
 	// Crear una pila y agregar elementos
 

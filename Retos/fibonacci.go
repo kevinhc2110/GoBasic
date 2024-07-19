@@ -15,9 +15,9 @@ func fibonacci() {
 	secFibonacci()
 }
 
-func secFibonacci(){
-	
-	n := 50 
+func secFibonacci() {
+
+	n := 50
 
 	// Inicializamos los primeros dos términos de la secuencia
 
@@ -41,6 +41,5 @@ func secFibonacci(){
 
 		a, b = b, a+b
 	}
-	fmt.Println() // Nueva línea al final de la secuencia		
+	fmt.Println() // Nueva línea al final de la secuencia
 }
-

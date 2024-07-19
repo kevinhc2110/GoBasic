@@ -66,10 +66,10 @@ func excepcionProc(a, b int) error {
 	return nil
 }
 
-func practica10()/*main*/ {
+func practica10() /*main*/ {
 
 	// Llamamos a la función que lanza el error personalizado
-	
+
 	err := lanzarErrorPersonalizado()
 	// Capturamos el error
 	if err != nil {
@@ -93,5 +93,3 @@ func practica10()/*main*/ {
 	fmt.Println("La ejecución ha finalizado")
 
 }
-
-

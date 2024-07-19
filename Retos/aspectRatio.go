@@ -51,6 +51,6 @@ func aspectRatio() {
 	aspectRatio := float64(width) / float64(height)
 
 	// Imprimir el aspect ratio
-	
+
 	fmt.Printf("El aspect ratio de la imagen es: %.2f\n", aspectRatio)
 }

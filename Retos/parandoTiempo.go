@@ -35,7 +35,6 @@ func sumAsync(a int, b int, delaySeconds int) <-chan int {
 	return result
 }
 
-
 func parandoTiempo() {
 	a, b, delay := 5, 7, 3
 	resultChan := sumAsync(a, b, delay)

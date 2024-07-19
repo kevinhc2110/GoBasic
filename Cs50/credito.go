@@ -10,18 +10,17 @@ import (
 
 func credito() {
 
-var cardNumber string
+	var cardNumber string
 
-fmt.Println("Ingrese un numero de tarjeta")
-fmt.Scanln(&cardNumber)	
+	fmt.Println("Ingrese un numero de tarjeta")
+	fmt.Scanln(&cardNumber)
 
-if luhnCheck(cardNumber) {
-	cardType := getCardType(cardNumber)
-	fmt.Printf("La tarjeta es válida y es de tipo %s\n", cardType)
-} else {
-	fmt.Println("La tarjeta no es válida")
-}
-
+	if luhnCheck(cardNumber) {
+		cardType := getCardType(cardNumber)
+		fmt.Printf("La tarjeta es válida y es de tipo %s\n", cardType)
+	} else {
+		fmt.Println("La tarjeta no es válida")
+	}
 
 }
 

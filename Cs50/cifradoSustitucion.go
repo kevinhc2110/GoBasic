@@ -47,9 +47,9 @@ func validarClave(clave string) bool {
 
 	letras := make(map[rune]bool)
 	for _, char := range clave {
-		 // Verificamos si cada carácter es alfabético (mayúscula o minúscula)
-		 // El operador ! antes de la expresión invierte su valor booleano. Por lo tanto, esta condición verifica si char no es una letra minúscula y no es una letra mayúscula. Es decir, verifica si char no es una letra alfabética.
-		 // Es verdadero si char no es una letra alfabética.
+		// Verificamos si cada carácter es alfabético (mayúscula o minúscula)
+		// El operador ! antes de la expresión invierte su valor booleano. Por lo tanto, esta condición verifica si char no es una letra minúscula y no es una letra mayúscula. Es decir, verifica si char no es una letra alfabética.
+		// Es verdadero si char no es una letra alfabética.
 		if !('a' <= char && char <= 'z') && !('A' <= char && char <= 'Z') {
 			return false // La clave contiene caracteres no alfabéticos
 		}
@@ -86,4 +86,3 @@ func cifrar(textoSinFormato string, clave string) string {
 	}
 	return textoCifrado
 }
-

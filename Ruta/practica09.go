@@ -26,9 +26,9 @@ type Empleado interface {
 // Estructura base para Empleado
 
 type EmpleadoBase struct {
-	id            int
-	name          string
-	subordinados  []Empleado
+	id           int
+	name         string
+	subordinados []Empleado
 }
 
 // Métodos comunes para todos los empleados
@@ -121,7 +121,7 @@ func (p *Programador) EscribirCodigo() {
 	// Lógica para escribir código
 }
 
-func practica09()/*main*/ {
+func practica09() /*main*/ {
 
 	// Crear instancias de Gerente, Gerente de Proyectos y Programador
 
@@ -147,7 +147,7 @@ func practica09()/*main*/ {
 	}
 
 	// Ejemplo de uso de los métodos específicos
-	
+
 	gerente.AsignarProyecto(&gerenteProyectos, "Nuevo Proyecto")
 	gerenteProyectos.PlanificarSprint()
 	programador1.EscribirCodigo()

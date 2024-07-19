@@ -32,7 +32,7 @@ func practica18() /*main*/ {
 
 	diferenciaSimetrica := diferenciaSimetrica(conjunto1, conjunto2)
 	fmt.Println("Diferencia simétrica:", diferenciaSimetrica)
-	
+
 }
 
 // Función para calcular la unión de dos conjuntos
@@ -137,7 +137,3 @@ func diferenciaSimetrica(conjunto1, conjunto2 []int) []int {
 
 	return diferenciaSimetrica
 }
-
-
-
-

@@ -20,23 +20,22 @@ func practica05() /*main*/ {
 	x := 10
 	y := 20
 
-	 // Llamar a la función de intercambio por valor
+	// Llamar a la función de intercambio por valor
 
 	nuevoX, nuevoY := porValor(x, y)
 
-	fmt.Println("Originales: x =", x, "y =", y) 
+	fmt.Println("Originales: x =", x, "y =", y)
 	fmt.Println("Intercambiados: nuevoX =", nuevoX, "nuevoY =", nuevoY)
 
 	a := 30
-  b := 40
+	b := 40
 
-	// Llamar a la función de intercambio por referencia 
+	// Llamar a la función de intercambio por referencia
 
 	porReferencia(&a, &b)
 
-	fmt.Println("Intercambiados por referencia: a =", a, "b =", b) 
+	fmt.Println("Intercambiados por referencia: a =", a, "b =", b)
 }
-
 
 func porValor(valor1 int, valor2 int) (int, int) {
 	return valor1, valor2

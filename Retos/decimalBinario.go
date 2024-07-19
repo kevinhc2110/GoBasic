@@ -9,7 +9,7 @@ decimal a binario sin utilizar funciones propias del lenguaje que lo hagan direc
 
 func decimalBinario() {
 
-	var numero int 
+	var numero int
 
 	fmt.Println("Ingrese una palabra par invertir")
 	fmt.Scanln(&numero)

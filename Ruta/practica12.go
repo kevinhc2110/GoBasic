@@ -21,9 +21,9 @@ Borra los archivos.
 // Estructura para almacenar los datos
 
 type Datos struct {
-	Nombre                 string   `json:"nombre" xml:"Nombre"`
-	Edad                   int      `json:"edad" xml:"Edad"`
-	FechaDeNacimiento      string   `json:"fecha_de_nacimiento" xml:"FechaDeNacimiento"`
+	Nombre                  string   `json:"nombre" xml:"Nombre"`
+	Edad                    int      `json:"edad" xml:"Edad"`
+	FechaDeNacimiento       string   `json:"fecha_de_nacimiento" xml:"FechaDeNacimiento"`
 	LenguajesDeProgramacion []string `json:"lenguajes_de_programacion" xml:"LenguajesDeProgramacion>Lenguaje"`
 }
 
@@ -107,9 +107,9 @@ func borrarArchivo(filename string) error {
 
 func practica12() /*main*/ {
 	datos := Datos{
-		Nombre:                 "Juan Perez",
-		Edad:                   30,
-		FechaDeNacimiento:      "1993-05-15",
+		Nombre:                  "Juan Perez",
+		Edad:                    30,
+		FechaDeNacimiento:       "1993-05-15",
 		LenguajesDeProgramacion: []string{"Go", "Python", "JavaScript"},
 	}
 

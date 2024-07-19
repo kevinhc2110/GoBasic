@@ -28,7 +28,7 @@ type User struct {
 type UserSession struct {
 	user *User
 	// mu es un mutex para asegurar que el acceso a la sesión del usuario sea seguro en entornos concurrentes.
-	mu   sync.Mutex // Mutex para manejar concurrencia en acceso a la sesión.
+	mu sync.Mutex // Mutex para manejar concurrencia en acceso a la sesión.
 }
 
 // Usa sync.Once para asegurar que UserSession se inicialice una sola vez.

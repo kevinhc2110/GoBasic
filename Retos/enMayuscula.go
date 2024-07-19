@@ -15,23 +15,23 @@ poner en mayúscula la primera letra de cada palabra.
 
 func esMayuscula() {
 
-// Opción 1
+	// Opción 1
 
-str := "hola mundo, qué tal estás"
+	str := "hola mundo, qué tal estás"
 
-result := ponerMayus(str)
-fmt.Println("Resultado:", result)
+	result := ponerMayus(str)
+	fmt.Println("Resultado:", result)
 
-// Opción 2
+	// Opción 2
 
-result2 := ponerMayus2(str)
-fmt.Println("Resultado:", result2)
-	
+	result2 := ponerMayus2(str)
+	fmt.Println("Resultado:", result2)
+
 }
 
 // Opción 1
 
-func ponerMayus(str string) string  {
+func ponerMayus(str string) string {
 
 	// Convertir la cadena de entrada a un slice de runas
 	runes := []rune(str)
@@ -72,18 +72,18 @@ func ponerMayus2(cadena string) string {
 	// Iterar sobre cada palabra
 	for _, palabra := range palabras {
 
-			// Capitalizar la primera letra de la palabra actual
-			// Notación de segmentación de cadenas de Go para extraer una subcadena que comienza en el índice 0 (el primer carácter) y tiene una longitud de 1 carácter
-			
-			primeraLetra := strings.ToUpper(palabra[:1])
+		// Capitalizar la primera letra de la palabra actual
+		// Notación de segmentación de cadenas de Go para extraer una subcadena que comienza en el índice 0 (el primer carácter) y tiene una longitud de 1 carácter
 
-			// La expresión palabra[1:] extrae una subcadena de palabra que comienza en el índice 1 (es decir, el segundo carácter) y se extiende hasta el final de la cadena.
-			// Esta subcadena contiene todas las letras excepto la primera, que se ha almacenado en primeraLetra.
+		primeraLetra := strings.ToUpper(palabra[:1])
 
-			restoPalabra := palabra[1:]
+		// La expresión palabra[1:] extrae una subcadena de palabra que comienza en el índice 1 (es decir, el segundo carácter) y se extiende hasta el final de la cadena.
+		// Esta subcadena contiene todas las letras excepto la primera, que se ha almacenado en primeraLetra.
 
-			// Añadir la palabra en mayúscula a la cadena capitalizada
-			cadenaCapitalizada += primeraLetra + restoPalabra + " "
+		restoPalabra := palabra[1:]
+
+		// Añadir la palabra en mayúscula a la cadena capitalizada
+		cadenaCapitalizada += primeraLetra + restoPalabra + " "
 	}
 
 	// Eliminar el espacio en blanco final

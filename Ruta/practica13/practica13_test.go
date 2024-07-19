@@ -42,5 +42,3 @@ func TestDatosCorrectos(t *testing.T) {
 		}
 	}
 }
-
-

@@ -20,18 +20,18 @@ Crea dos test:
 
 // DatosPersonales representa la estructura de los datos personales
 type DatosPersonales struct {
-	Name                string
-	Age                 int
-	BirthDate           string
+	Name                 string
+	Age                  int
+	BirthDate            string
 	ProgrammingLanguages []string
 }
 
 // NewDatosPersonales crea una nueva instancia de DatosPersonales
 func NewDatosPersonales(name string, age int, birthDate string, languages []string) DatosPersonales {
 	return DatosPersonales{
-		Name:                name,
-		Age:                 age,
-		BirthDate:           birthDate,
+		Name:                 name,
+		Age:                  age,
+		BirthDate:            birthDate,
 		ProgrammingLanguages: languages,
 	}
 }

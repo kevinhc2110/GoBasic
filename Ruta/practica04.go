@@ -27,16 +27,15 @@ func practica04() /*main*/ {
 
 	if esPalindromo(palabra1) {
 		fmt.Printf("%s es un palíndromo.\n", palabra1)
-		} else {
-			fmt.Printf("%s no es un palíndromo.\n", palabra1)
+	} else {
+		fmt.Printf("%s no es un palíndromo.\n", palabra1)
 	}
 
 	if esPalindromo(palabra2) {
 		fmt.Printf("%s es un palíndromo.\n", palabra2)
-		} else {
-			fmt.Printf("%s no es un palíndromo.\n", palabra2)
+	} else {
+		fmt.Printf("%s no es un palíndromo.\n", palabra2)
 	}
-
 
 	if esAnagrama(palabra1, palabra2) {
 		fmt.Printf("%s y %s son anagramas.\n", palabra1, palabra2)
@@ -46,21 +45,21 @@ func practica04() /*main*/ {
 
 	if esIsograma(palabra1) {
 		fmt.Printf("%s es un isograma.\n", palabra1)
-		} else {
-			fmt.Printf("%s no es un isograma.\n", palabra1)
+	} else {
+		fmt.Printf("%s no es un isograma.\n", palabra1)
 	}
 
 	if esIsograma(palabra2) {
 		fmt.Printf("%s es un isograma.\n", palabra2)
-		} else {
-			fmt.Printf("%s no es un isograma.\n", palabra2)
+	} else {
+		fmt.Printf("%s no es un isograma.\n", palabra2)
 	}
 
 }
 
-func esPalindromo (palabra string) bool {
+func esPalindromo(palabra string) bool {
 
-	palabra= strings.ToLower(palabra)
+	palabra = strings.ToLower(palabra)
 
 	//for i := 0; i < len(palabra)/2; i++ {: Inicia un bucle for que recorre la mitad de la longitud de la palabra. Esto es así porque queremos comparar los caracteres desde el principio de la palabra con los caracteres desde el final de la palabra.
 	//if palabra[i] != palabra[len(palabra)-1-i] { return false }: En cada iteración del bucle, compara el carácter en la posición i con el carácter en la posición len(palabra)-1-i, que es el carácter correspondiente desde el final de la palabra.
@@ -87,18 +86,18 @@ func esAnagrama(palabra1 string, palabra2 string) bool {
 	palabra1 = strings.ToLower(palabra1)
 	palabra2 = strings.ToLower(palabra2)
 
-	if len(palabra1) != len(palabra2){
+	if len(palabra1) != len(palabra2) {
 		return false
 	}
 
 	mapeoPalabra1 := make(map[rune]int)
 	mapeoPalabra2 := make(map[rune]int)
 
-	for _, letra := range palabra1{
+	for _, letra := range palabra1 {
 		mapeoPalabra1[letra]++
 	}
 
-	for _, letra := range palabra1{
+	for _, letra := range palabra1 {
 		mapeoPalabra2[letra]++
 	}
 
@@ -128,10 +127,3 @@ func esIsograma(palabra string) bool {
 
 	return true
 }
-
-
-
-
-
-
-

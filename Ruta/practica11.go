@@ -98,7 +98,7 @@ func escribirProductos(productos []Producto) error {
 	return writer.Flush()
 
 	// La función devuelve cualquier error encontrado durante el proceso de vaciado.
-	
+
 }
 
 func añadirProducto(productos []Producto, producto Producto) []Producto {
@@ -151,7 +151,7 @@ func calcularVentaPorProducto(productos []Producto, nombre string) (float64, boo
 	return 0, false
 }
 
-func practica11()/*main*/ {
+func practica11() /*main*/ {
 	reader := bufio.NewReader(os.Stdin)
 
 	productos, err := leerProductos()
@@ -173,7 +173,7 @@ func practica11()/*main*/ {
 
 		// lee caracteres del reader.ReadString('\n')reader hasta que encuentra un carácter de nueva línea (\n).
 		opcionStr, _ := reader.ReadString('\n')
-		// limina cualquier espacio en blanco inicial o final (espacios, tabuladores, nuevas líneas) de la cadena almacenada en . Esto asegura que la entrada del usuario, incluso si accidentalmente agregó espacios adicionales, se procese 
+		// limina cualquier espacio en blanco inicial o final (espacios, tabuladores, nuevas líneas) de la cadena almacenada en . Esto asegura que la entrada del usuario, incluso si accidentalmente agregó espacios adicionales, se procese
 		opcionStr = strings.TrimSpace(opcionStr)
 		// strconv.Atoi(opcionStr) intenta convertir la cadena en opcionStr (que se espera que sea un número ingresado por el usuario) en un valor entero.
 		opcion, err := strconv.Atoi(opcionStr)

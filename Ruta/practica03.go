@@ -23,7 +23,7 @@ de 11 dígitos (o el número de dígitos que quieras).
 - También se debe proponer una operación de finalización del programa.
 */
 
-var contactos = map[string]string {"romeo":"3179812397", "sofia": "3207783344"}
+var contactos = map[string]string{"romeo": "3179812397", "sofia": "3207783344"}
 
 var numero string
 
@@ -42,28 +42,28 @@ func practica03() /*main*/ {
 	fmt.Scanln(&option)
 
 	switch option {
-		case 1:
-			buscarContacto()
-		case 2:
-			agregarContacto()
-		case 3:
-			actualizarContacto()
-		case 4:
-			eliminarContacto()
-		case 5:
-			mostrarContactos()	
-		case 6:
-			fmt.Println("Saliendo del programa...")
+	case 1:
+		buscarContacto()
+	case 2:
+		agregarContacto()
+	case 3:
+		actualizarContacto()
+	case 4:
+		eliminarContacto()
+	case 5:
+		mostrarContactos()
+	case 6:
+		fmt.Println("Saliendo del programa...")
 
-			// Detiene ejecución
+		// Detiene ejecución
 
-			os.Exit(0)
-		default:
-			fmt.Println("Opción no válida. Intente de nuevo.")
+		os.Exit(0)
+	default:
+		fmt.Println("Opción no válida. Intente de nuevo.")
 	}
 }
 
-func buscarContacto()  {
+func buscarContacto() {
 
 	fmt.Print("Ingrese el nombre del contacto a buscar:  ")
 	scanner := bufio.NewScanner(os.Stdin)
@@ -108,12 +108,12 @@ func agregarContacto() {
 		return
 	}
 
-	contactos[nombre] = numero;
+	contactos[nombre] = numero
 
 	fmt.Println("Contacto agregado correctamente.")
 }
 
-// strconv.Atoi(): Esto se usa para convertir una cadena de texto a string, devuelve 2 valores 
+// strconv.Atoi(): Esto se usa para convertir una cadena de texto a string, devuelve 2 valores
 // Usamos "_" para ignorar el primer valor que es el entero
 // El segundo valor es error, si se completa la conversion error == nil, si no genera un error
 
@@ -132,8 +132,8 @@ func actualizarContacto() {
 
 	nombre = strings.ToLower(nombre)
 
-	// Si el contacto no fue encontrado se detiene la ejecución 
-	
+	// Si el contacto no fue encontrado se detiene la ejecución
+
 	_, encontrado := contactos[nombre]
 	if !encontrado {
 		fmt.Println("El contacto no fue encontrado.")
@@ -150,48 +150,48 @@ func actualizarContacto() {
 	fmt.Scanln(&option)
 
 	switch option {
-		case 1:
-			fmt.Print("Ingrese el nuevo número de teléfono del contacto: ")
-			scanner.Scan()
-			nuevoNumero := scanner.Text()
-		
-			if !esNumero(nuevoNumero) || len(nuevoNumero) > 11 {
-				fmt.Println("El número de teléfono ingresado no es válido.")
-				return
-			}
-		
-			contactos[nombre] = nuevoNumero
-			fmt.Println("Contacto actualizado correctamente.")
+	case 1:
+		fmt.Print("Ingrese el nuevo número de teléfono del contacto: ")
+		scanner.Scan()
+		nuevoNumero := scanner.Text()
 
-		case 2:
-			fmt.Print("Ingrese el nuevo nombre del contacto: ")
-      scanner.Scan()
-      nuevoNombre := strings.ToLower(scanner.Text())
+		if !esNumero(nuevoNumero) || len(nuevoNumero) > 11 {
+			fmt.Println("El número de teléfono ingresado no es válido.")
+			return
+		}
 
-      contactos[nuevoNombre] = contactos[nombre]
-      delete(contactos, nombre)
-      fmt.Println("Contacto actualizado correctamente.")
-		
-		case 3:
-			fmt.Print("Ingrese el nuevo nombre del contacto: ")
-			scanner.Scan()
-			nuevoNombre := strings.ToLower(scanner.Text())
+		contactos[nombre] = nuevoNumero
+		fmt.Println("Contacto actualizado correctamente.")
 
-			fmt.Print("Ingrese el nuevo número de teléfono del contacto: ")
-			scanner.Scan()
-			nuevoNumero := scanner.Text()
+	case 2:
+		fmt.Print("Ingrese el nuevo nombre del contacto: ")
+		scanner.Scan()
+		nuevoNombre := strings.ToLower(scanner.Text())
 
-			if !esNumero(nuevoNumero) || len(nuevoNumero) > 11 {
-					fmt.Println("El número de teléfono ingresado no es válido.")
-					return
-			}
+		contactos[nuevoNombre] = contactos[nombre]
+		delete(contactos, nombre)
+		fmt.Println("Contacto actualizado correctamente.")
 
-			contactos[nuevoNombre] = nuevoNumero
-			delete(contactos, nombre)
-			fmt.Println("Contacto actualizado correctamente.")
+	case 3:
+		fmt.Print("Ingrese el nuevo nombre del contacto: ")
+		scanner.Scan()
+		nuevoNombre := strings.ToLower(scanner.Text())
 
-		default:
-			fmt.Println("Opción no válida. Intente de nuevo.")
+		fmt.Print("Ingrese el nuevo número de teléfono del contacto: ")
+		scanner.Scan()
+		nuevoNumero := scanner.Text()
+
+		if !esNumero(nuevoNumero) || len(nuevoNumero) > 11 {
+			fmt.Println("El número de teléfono ingresado no es válido.")
+			return
+		}
+
+		contactos[nuevoNombre] = nuevoNumero
+		delete(contactos, nombre)
+		fmt.Println("Contacto actualizado correctamente.")
+
+	default:
+		fmt.Println("Opción no válida. Intente de nuevo.")
 	}
 }
 

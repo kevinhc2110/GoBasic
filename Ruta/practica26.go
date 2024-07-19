@@ -30,15 +30,15 @@ siguiendo el Principio de Responsabilidad Única.
 //*Clase que No Cumple el SRP*
 
 type Libro struct {
-	Titulo          string
-	Autor           string
+	Titulo            string
+	Autor             string
 	CopiasDisponibles int
 }
 
 type Usuario struct {
-	Nombre           string
+	Nombre               string
 	NumeroIdentificacion string
-	Correo           string
+	Correo               string
 }
 
 type Prestamo struct {
@@ -49,9 +49,9 @@ type Prestamo struct {
 }
 
 type Library struct {
-	Libros          []Libro
-	Usuarios        []Usuario
-	Prestamos       []Prestamo
+	Libros    []Libro
+	Usuarios  []Usuario
+	Prestamos []Prestamo
 }
 
 func (l *Library) RegistrarLibro(titulo, autor string, copias int) {
@@ -100,16 +100,16 @@ func (l *Library) ProcesarPrestamo(usuarioID, libroTitulo string) {
 
 // Libro representa un libro en la biblioteca
 type Libro1 struct {
-	Titulo          string
-	Autor           string
+	Titulo            string
+	Autor             string
 	CopiasDisponibles int
 }
 
 // Usuario representa un usuario de la biblioteca
 type Usuario1 struct {
-	Nombre           string
+	Nombre               string
 	NumeroIdentificacion string
-	Correo           string
+	Correo               string
 }
 
 // Prestamo representa un préstamo de libro

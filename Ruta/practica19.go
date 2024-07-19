@@ -37,7 +37,7 @@ const (
 // Pedido representa un pedido con un identificador y un estado.
 
 type Pedido struct {
-	ID    int
+	ID     int
 	Estado OrderState
 }
 
@@ -47,7 +47,7 @@ func (p *Pedido) Enviar() {
 
 	// Esta función cambia el estado del pedido a ENVIADO si el pedido está actualmente en el estado PENDIENTE.
 	// Primero, verifica si el estado actual del pedido (p.Estado) es PENDIENTE.
-  //Si el estado es PENDIENTE, cambia el estado a ENVIADO y muestra un mensaje indicando que el pedido ha sido enviado.
+	//Si el estado es PENDIENTE, cambia el estado a ENVIADO y muestra un mensaje indicando que el pedido ha sido enviado.
 
 	if p.Estado == PENDIENTE {
 		p.Estado = ENVIADO

@@ -22,11 +22,11 @@ utilizando su nombre o número.
 
 // Estructuras para mapear los datos JSON
 type Pokemon struct {
-	Name       string        `json:"name"`
-	ID         int           `json:"id"`
-	Weight     int           `json:"weight"`
-	Height     int           `json:"height"`
-	Types      []PokemonType `json:"types"`
+	Name        string        `json:"name"`
+	ID          int           `json:"id"`
+	Weight      int           `json:"weight"`
+	Height      int           `json:"height"`
+	Types       []PokemonType `json:"types"`
 	GameIndices []GameIndex   `json:"game_indices"`
 }
 
@@ -51,8 +51,8 @@ type Evolution struct {
 }
 
 type Chain struct {
-	Species    SpeciesDetail `json:"species"`
-	EvolvesTo  []Chain       `json:"evolves_to"`
+	Species   SpeciesDetail `json:"species"`
+	EvolvesTo []Chain       `json:"evolves_to"`
 }
 
 type SpeciesDetail struct {

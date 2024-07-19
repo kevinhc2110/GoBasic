@@ -69,5 +69,3 @@ func formatearFecha(fecha time.Time) {
 
 	fmt.Printf("10. Formato personalizado: %s\n", fecha.Format("Monday, 02 de January de 2006"))
 }
-
-

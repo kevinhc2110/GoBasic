@@ -13,12 +13,12 @@ func covertirAMilisegundos(dias, horas, minutos, segundos int) int64 {
 
 	const (
 		milisegundosPorSegundo = 1000
-		segundosPorMinuto = 60
-		minutosPorHora = 60
-		horasPorDia = 24
+		segundosPorMinuto      = 60
+		minutosPorHora         = 60
+		horasPorDia            = 24
 	)
 
-	totalSegundos := int64(dias*horasPorDia*minutosPorHora*segundosPorMinuto+ horas*minutosPorHora*segundosPorMinuto + minutos*segundosPorMinuto + segundos)
+	totalSegundos := int64(dias*horasPorDia*minutosPorHora*segundosPorMinuto + horas*minutosPorHora*segundosPorMinuto + minutos*segundosPorMinuto + segundos)
 	totalMilisegundos := (totalSegundos * milisegundosPorSegundo)
 
 	return totalMilisegundos
@@ -34,7 +34,6 @@ func convertirAMilisegundos1(dias, horas, minutos, segundos int) int {
 	return totalMilisegundos
 }
 
-
 func convertirTiempo() {
 
 	dias := 1
@@ -44,7 +43,7 @@ func convertirTiempo() {
 
 	// Opción 1
 
-	resultado := covertirAMilisegundos(dias,horas,minutos,segundos)
+	resultado := covertirAMilisegundos(dias, horas, minutos, segundos)
 
 	fmt.Printf("El total en milisegundos es: %d\n", resultado)
 
@@ -53,4 +52,4 @@ func convertirTiempo() {
 	fmt.Printf("%d días, %d horas, %d minutos, %d segundos equivalen a %d milisegundos.\n",
 		dias, horas, minutos, segundos, convertirAMilisegundos1(dias, horas, minutos, segundos))
 
-} 
+}

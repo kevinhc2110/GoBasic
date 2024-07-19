@@ -20,32 +20,32 @@ func legibilidad() {
 
 	indice := indiceColemanLiai(texto)
 
-	if (indice >= 16){
+	if indice >= 16 {
 
-			fmt.Println("Grado 16+");
+		fmt.Println("Grado 16+")
 
-	}else if (indice < 1){
+	} else if indice < 1 {
 
-		fmt.Println("Antes de grado 1");
-		
-	}else{
-		fmt.Printf("Grado %d\n", indice);
+		fmt.Println("Antes de grado 1")
+
+	} else {
+		fmt.Printf("Grado %d\n", indice)
 	}
-	
+
 }
 
 func indiceColemanLiai(texto string) int {
 
 	/*
-	for _, letra := range texto {
-    if unicode.IsLetter(letra){
-      conteoLetras++
-    }
-  }
+			for _, letra := range texto {
+		    if unicode.IsLetter(letra){
+		      conteoLetras++
+		    }
+		  }
 	*/
 
 	// En lugar de iterar sobre las palabras (strings.Fields(texto)), se podría iterar sobre caracteres individuales (rune) utilizando un bucle for range y verificar si cada carácter es una letra usando unicode.IsLetter(rune).
-	// Eficiencia 
+	// Eficiencia
 
 	conteoLetras := 0
 
@@ -60,7 +60,7 @@ func indiceColemanLiai(texto string) int {
 	conteoPalabras := len(palabras)
 
 	conteoOraciones := 0
-	
+
 	for _, palabra := range palabras {
 		if strings.ContainsAny(palabra, ".!?") {
 			conteoOraciones++
@@ -72,9 +72,4 @@ func indiceColemanLiai(texto string) int {
 	indice := (0.0588*l - 0.296*s - 15.8)
 
 	return int(math.Round(indice))
-} 
-
-
-
-
-
+}

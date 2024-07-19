@@ -52,7 +52,7 @@ func evaluarCarrera(acciones []string, pista string) bool {
 
 		if (accion == "run" && pistaRunes[i] == '_') || (accion == "jump" && pistaRunes[i] == '|') {
 			// Acción correcta, no hacer nada
-		} else if accion == "run" && pistaRunes[i] == '|'  {
+		} else if accion == "run" && pistaRunes[i] == '|' {
 			// Jump en suelo, marcar como incorrecto
 			pistaRunes[i] = '/'
 			return false
@@ -60,12 +60,11 @@ func evaluarCarrera(acciones []string, pista string) bool {
 			// Run en valla, marcar como incorrecto
 			pistaRunes[i] = 'x'
 			return false
-		}		
+		}
 	}
 
 	// Imprimir el resultado de la pista
 	fmt.Println(string(pistaRunes))
-
 
 	return superado
 

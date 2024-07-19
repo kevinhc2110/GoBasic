@@ -40,9 +40,9 @@ func scrabble() {
 
 	if scrabbleValues(palabra1) > scrabbleValues(palabra2) {
 		fmt.Println("Player 1: Wins!")
-	} else if	scrabbleValues(palabra1) == scrabbleValues(palabra2)  {
+	} else if scrabbleValues(palabra1) == scrabbleValues(palabra2) {
 		fmt.Println("Tie!")
 	} else {
-		fmt.Println("Player 2: Wins!")	
+		fmt.Println("Player 2: Wins!")
 	}
 }

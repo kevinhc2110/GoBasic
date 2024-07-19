@@ -19,9 +19,9 @@ func esArmstrong() {
 	// Opción 1
 
 	if numeroArmstrong1(num) {
-			fmt.Printf("El número %d es un número de Armstrong.\n", num)
+		fmt.Printf("El número %d es un número de Armstrong.\n", num)
 	} else {
-			fmt.Printf("El número %d no es un número de Armstrong.\n", num)
+		fmt.Printf("El número %d no es un número de Armstrong.\n", num)
 	}
 
 	// Opción 2
@@ -35,11 +35,11 @@ func esArmstrong() {
 
 // Opción 1
 
-func numeroArmstrong1(num int)bool {
+func numeroArmstrong1(num int) bool {
 
 	// Convertir entero a string
 
-	numStr := strconv.Itoa(num) 
+	numStr := strconv.Itoa(num)
 	potencia := len(numStr)
 	var verificado int
 
@@ -73,12 +73,11 @@ func potenciaEntera(base, exponente int) int {
 	resultado := 1
 	for i := 0; i < exponente; i++ {
 
-		// Multiplicamos la base por si mismo 
+		// Multiplicamos la base por si mismo
 		resultado *= base
 	}
 	return resultado
 }
-
 
 // Opción 3
 

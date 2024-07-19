@@ -24,7 +24,7 @@ interpretan como nombres de documentos.
 
 // Estructura para representar una página web
 type Pagina struct {
-	Nombre string
+	Nombre    string
 	Contenido string
 }
 
@@ -32,67 +32,66 @@ type Pagina struct {
 
 type Stack []Pagina
 
-
 func stackPractica() /*main*/ {
 
-	   // Inicialización de pilas
+	// Inicialización de pilas
 
-		 backStack := Stack{}
-		 forwardStack := Stack{}
- 
-		 // Lector de entrada
+	backStack := Stack{}
+	forwardStack := Stack{}
 
-		 reader := bufio.NewReader(os.Stdin)
- 
-		 // Mensaje de bienvenida
+	// Lector de entrada
 
-		 fmt.Println("Bienvenido al navegador web simple.")
- 
-		 for {
+	reader := bufio.NewReader(os.Stdin)
 
-				 // Solicitud de acción al usuario
+	// Mensaje de bienvenida
 
-				 fmt.Print("Ingrese una acción (adelante, atrás o el nombre de una página): ")
-				 input, _ := reader.ReadString('\n')
-				 input = strings.TrimSpace(input)
- 
-				 // Instrucción switch para determinar la acción
+	fmt.Println("Bienvenido al navegador web simple.")
 
-				 switch input {
-				 case "adelante":
-						 if pagina := forwardStack.Pop(); pagina.Nombre != "" {
-								 backStack.Push(pagina)
-								 fmt.Println("Página adelante:", pagina.Nombre)
-								 fmt.Println(pagina.Contenido) // Mostrar contenido de la página
-						 } else {
-								 fmt.Println("No hay páginas adelante.")
-						 }
- 
-				 case "atras":
-						 if pagina := backStack.Pop(); pagina.Nombre != "" {
-								 forwardStack.Push(pagina)
-								 fmt.Println("Página atrás:", pagina.Nombre)
-								 fmt.Println(pagina.Contenido) // Mostrar contenido de la página
-						 } else {
-								 fmt.Println("No hay páginas atrás.")
-						 }
- 
-				 default:
+	for {
 
-						 // Navegar a una nueva página
+		// Solicitud de acción al usuario
 
-						 pagina := Pagina{Nombre: input, Contenido: cargarPagina(input)}
-						 backStack.Push(pagina)
-						 forwardStack = Stack{}
-						 fmt.Println("Navegando a la página:", pagina.Nombre)
-						 fmt.Println(pagina.Contenido) // Mostrar contenido de la página
-				 }
-		 }
+		fmt.Print("Ingrese una acción (adelante, atrás o el nombre de una página): ")
+		input, _ := reader.ReadString('\n')
+		input = strings.TrimSpace(input)
+
+		// Instrucción switch para determinar la acción
+
+		switch input {
+		case "adelante":
+			if pagina := forwardStack.Pop(); pagina.Nombre != "" {
+				backStack.Push(pagina)
+				fmt.Println("Página adelante:", pagina.Nombre)
+				fmt.Println(pagina.Contenido) // Mostrar contenido de la página
+			} else {
+				fmt.Println("No hay páginas adelante.")
+			}
+
+		case "atras":
+			if pagina := backStack.Pop(); pagina.Nombre != "" {
+				forwardStack.Push(pagina)
+				fmt.Println("Página atrás:", pagina.Nombre)
+				fmt.Println(pagina.Contenido) // Mostrar contenido de la página
+			} else {
+				fmt.Println("No hay páginas atrás.")
+			}
+
+		default:
+
+			// Navegar a una nueva página
+
+			pagina := Pagina{Nombre: input, Contenido: cargarPagina(input)}
+			backStack.Push(pagina)
+			forwardStack = Stack{}
+			fmt.Println("Navegando a la página:", pagina.Nombre)
+			fmt.Println(pagina.Contenido) // Mostrar contenido de la página
+		}
+	}
 }
 
 // func (stack *Stack) Push(page Pagina) {: Esto define una función llamada Push que pertenece al tipo Stack. El receptor de este método es un puntero a Stack, denotado por (stack *Stack), lo que significa que esta función se puede llamar en cualquier instancia de Stack y puede modificar el valor de la instancia original. El parámetro page Pagina indica que la función toma un argumento de tipo Pagina llamado page.
 
-func (stack *Stack) Push(page Pagina) { 
+func (stack *Stack) Push(page Pagina) {
 	*stack = append(*stack, page)
 }
 
@@ -121,7 +120,7 @@ func cargarPagina(nombrePagina string) string {
 
 // Estructura para representar un documento
 type Documento struct {
-	Nombre string
+	Nombre    string
 	Contenido string
 }
 
@@ -146,34 +145,33 @@ func queuePractica() /*main*/ {
 
 	for {
 
-			// Solicitud de acción al usuario
+		// Solicitud de acción al usuario
 
-			fmt.Print("Ingrese una acción (imprimir o nombre de documento): ")
-			input, _ := reader.ReadString('\n')
-			input = strings.TrimSpace(input)
+		fmt.Print("Ingrese una acción (imprimir o nombre de documento): ")
+		input, _ := reader.ReadString('\n')
+		input = strings.TrimSpace(input)
 
-			// Instrucción switch para determinar la acción
+		// Instrucción switch para determinar la acción
 
-			switch input {
-			case "imprimir":
-					if documento := colaDocumentos.Pop(); documento.Nombre != "" {
-							imprimirDocumento(documento)
-					} else {
-							fmt.Println("No hay documentos para imprimir.")
-					}
-
-			default:
-
-					// Agregar documento a la cola
-
-					contenido, _ := os.ReadFile(input + ".txt")
-					documento := Documento{Nombre: input, Contenido: string(contenido)}
-					colaDocumentos.Push(documento)
-					fmt.Println("Documento agregado a la cola:", documento.Nombre)
+		switch input {
+		case "imprimir":
+			if documento := colaDocumentos.Pop(); documento.Nombre != "" {
+				imprimirDocumento(documento)
+			} else {
+				fmt.Println("No hay documentos para imprimir.")
 			}
+
+		default:
+
+			// Agregar documento a la cola
+
+			contenido, _ := os.ReadFile(input + ".txt")
+			documento := Documento{Nombre: input, Contenido: string(contenido)}
+			colaDocumentos.Push(documento)
+			fmt.Println("Documento agregado a la cola:", documento.Nombre)
+		}
 	}
 }
-
 
 // Función para agregar un documento a la cola
 
@@ -185,7 +183,7 @@ func (queue *Queue) Push(documento Documento) {
 
 func (queue *Queue) Pop() Documento {
 	if len(*queue) == 0 {
-			return Documento{}
+		return Documento{}
 	}
 
 	documento := (*queue)[0]
@@ -199,4 +197,3 @@ func imprimirDocumento(documento Documento) {
 	fmt.Println(documento.Contenido)
 	fmt.Println("Impresión finalizada.")
 }
-

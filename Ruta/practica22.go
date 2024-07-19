@@ -22,29 +22,27 @@ realizar las siguientes operaciones de procesamiento y análisis:
 - Una calificación debe estar comprendida entre 0 y 10 (admite decimales).
 */
 
-type Estudiante struct{
-
-	Nombres string
+type Estudiante struct {
+	Nombres         string
 	FechaNacimiento time.Time
-	Calificaciones []float64
-
+	Calificaciones  []float64
 }
 
 func practica22() {
 
 	estudiantes := []Estudiante{
-		{	
-		Nombres:          "Juan Pérez",
-		FechaNacimiento: time.Date(2000, time.January, 15, 0, 0, 0, 0, time.UTC),
-		Calificaciones:  []float64{6.5, 7.0, 8.0},
+		{
+			Nombres:         "Juan Pérez",
+			FechaNacimiento: time.Date(2000, time.January, 15, 0, 0, 0, 0, time.UTC),
+			Calificaciones:  []float64{6.5, 7.0, 8.0},
 		},
 		{
-			Nombres:          "María López",
+			Nombres:         "María López",
 			FechaNacimiento: time.Date(1999, time.March, 22, 0, 0, 0, 0, time.UTC),
 			Calificaciones:  []float64{9.2, 9.5, 9.7},
 		},
 		{
-			Nombres:          "Roberto Zuluaga",
+			Nombres:         "Roberto Zuluaga",
 			FechaNacimiento: time.Date(1997, time.December, 29, 0, 0, 0, 0, time.UTC),
 			Calificaciones:  []float64{8.5, 9.0, 7.0},
 		},
@@ -76,7 +74,7 @@ func practica22() {
 	fmt.Printf("\nMayor calificación entre todos los estudiantes: %.2f\n", maxCalificacion)
 }
 
-func (e* Estudiante) PromedioCalificaciones() float64  {
+func (e *Estudiante) PromedioCalificaciones() float64 {
 
 	if len(e.Calificaciones) == 0 {
 		return 0.0
@@ -86,8 +84,8 @@ func (e* Estudiante) PromedioCalificaciones() float64  {
 	for _, calificacion := range e.Calificaciones {
 		suma += calificacion
 	}
-	return suma/ float64(len(e.Calificaciones))
-	
+	return suma / float64(len(e.Calificaciones))
+
 }
 
 // Lista promedio de califaciones
@@ -100,7 +98,7 @@ func PromedioCalificaciones(estudiantes []Estudiante) map[string]float64 {
 	return promedios
 }
 
-// Mejores estudiantes 
+// Mejores estudiantes
 
 func MejoresEstudiantes(estudiantes []Estudiante) []string {
 	mejores := []string{}

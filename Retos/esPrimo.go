@@ -25,11 +25,10 @@ func primo() {
 	}
 
 	primos := cribaEratostenes(100)
-    for _, primo := range primos {
-        fmt.Println(primo)
-    }
+	for _, primo := range primos {
+		fmt.Println(primo)
+	}
 }
-
 
 // Opción 1
 
@@ -90,7 +89,7 @@ func cribaEratostenes(limite int) []int {
 	primos := make([]bool, limite+1)
 
 	for i := range primos {
-			primos[i] = true
+		primos[i] = true
 	}
 	primos[0] = false
 	primos[1] = false
@@ -99,11 +98,11 @@ func cribaEratostenes(limite int) []int {
 	// Entonces, para cada múltiplo de i desde i*i hasta limite, se marca ese múltiplo como false en el slice primos, ya que los múltiplos de i no pueden ser primos.
 
 	for i := 2; i*i <= limite; i++ {
-			if primos[i] {
-					for j := i * i; j <= limite; j += i {
-							primos[j] = false
-					}
+		if primos[i] {
+			for j := i * i; j <= limite; j += i {
+				primos[j] = false
 			}
+		}
 	}
 
 	// Después de que se han marcado todos los múltiplos de los números primos como false, los números que quedan marcados como true en el slice primos son los números primos dentro del rango.
@@ -111,9 +110,9 @@ func cribaEratostenes(limite int) []int {
 
 	var resultado []int
 	for i := 2; i <= limite; i++ {
-			if primos[i] {
-					resultado = append(resultado, i)
-			}
+		if primos[i] {
+			resultado = append(resultado, i)
+		}
 	}
 	return resultado
 }
